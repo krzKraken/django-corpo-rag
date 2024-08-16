@@ -1,0 +1,194 @@
+{% extends 'base.html' %} {% block styles %}
+<style>
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+  }
+
+  /* Cambiamos las barras superiores a verde */
+  .card-header {
+    /* background-color: #00b999; */
+    background-color: #063a30;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .messages-box {
+    height: 200px; /* Altura fija para el contenedor de mensajes */
+    /* overflow-y: auto; */
+    background-color: #f5f5f5; /* Fondo para diferenciar */
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+  }
+
+  .messages-list {
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .message {
+    margin-bottom: 15px;
+    list-style: none;
+  }
+
+  .message-text {
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .sent {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+  }
+
+  .received {
+    background-color: #f1f0f0;
+    align-self: flex-start;
+  }
+
+  .message-form {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #f8f9fa;
+  }
+
+  .message-input {
+    flex: 1;
+    border-radius: 0;
+    border-right: none;
+  }
+
+  .btn-send {
+    border-radius: 0;
+  }
+
+  .chat-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+</style>
+{% endblock %} {% block content %}
+<div class="chat-container">
+  <div class="card flex-grow-1">
+    <!-- Barra superior de color verde -->
+    <div class="card-header"><b>Chatbot</b></div>
+    {% if user.is_authenticated %}
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <b>Bienvenido, {{user.username|upper}}</b>
+      <a style="color: white" href="logout">Logout</a>
+    </div>
+    {% else %}
+    <div class="card-header">
+      <a style="color: white" href="login">Login</a>
+      <a style="color: white" href="register">Register</a>
+    </div>
+    {% endif %}
+
+    <!-- Contenedor de la lista de mensajes con altura fija -->
+    <div class="card-body messages-box">
+      <ul class="list-unstyled messages-list">
+        {% for chat in chats %} {% if chat.user == request.user %}
+        <li class="message sent">
+          <div class="message-text">
+            <div class="message-sender">
+              <b>You</b>
+            </div>
+            <div class="message-content">{{ chat.message }}</div>
+          </div>
+        </li>
+        <li class="message received">
+          <div class="message-text">
+            <div class="message-sender">
+              <b>AI Chatbot</b>
+            </div>
+            <div class="message-content">{{ chat.response }}</div>
+          </div>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Formulario de mensaje en la parte inferior -->
+  <form class="message-form">
+    {% csrf_token %}
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control message-input"
+        placeholder="Type your message..."
+      />
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-primary btn-send">Send</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  const messagesList = document.querySelector(".messages-list");
+  const messageForm = document.querySelector(".message-form");
+  const messageInput = document.querySelector(".message-input");
+
+  messageForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const message = messageInput.value.trim();
+    if (message.length === 0) {
+      return;
+    }
+
+    const messageItem = document.createElement("li");
+    messageItem.classList.add("message", "sent");
+    messageItem.innerHTML = `
+        <div class="message-text">
+            <div class="message-sender">
+                <b>You</b>
+            </div>
+            <div class="message-content">
+                ${message}
+            </div>
+        </div>`;
+    messagesList.appendChild(messageItem);
+
+    messageInput.value = "";
+
+    fetch("", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        csrfmiddlewaretoken: document.querySelector(
+          "[name=csrfmiddlewaretoken]",
+        ).value,
+        message: message,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const response = data.response;
+        const messageItem = document.createElement("li");
+        messageItem.classList.add("message", "received");
+        messageItem.innerHTML = `
+        <div class="message-text">
+            <div class="message-sender">
+              <b>AI Chatbot</b>
+            </div>
+            <div class="message-content">
+                ${response}
+            </div>
+        </div>`;
+        messagesList.appendChild(messageItem);
+      });
+  });
+</script>
+{% endblock %}
