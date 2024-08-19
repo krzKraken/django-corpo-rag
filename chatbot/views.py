@@ -2,11 +2,14 @@ import os
 
 import openai
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.utils import timezone
 from dotenv import load_dotenv
+
+from src import file_processing
 
 from .models import Chat
 
@@ -15,6 +18,11 @@ from .models import Chat
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
+
+
+# NOTE: Admin verify
+def is_admin(user):
+    return user.is_superuser
 
 
 def welcome(request):
@@ -45,6 +53,7 @@ def ask_openai(message):
         return "No answer received from chatgpt"
 
 
+@login_required
 def chatbot(request):
     chats = Chat.objects.filter(user=request.user)
 
@@ -66,6 +75,21 @@ def chatbot(request):
     return render(request, "chatbot.html", {"chats": chats})
 
 
+@login_required
+def loadedfiles(request):
+    documents = file_processing.files_in_docs()
+    # Aquí harías la lógica para obtener los documentos
+
+    # documents = [
+    #     {"name": "nombre documento corto"},
+    #     {"name": "nombre de documento otro mas largo"},
+    #     {
+    #         "name": "nombre de documento mucho mucho mas largo para pruebas, probando overflow en texto"
+    #     },
+    # ]
+    return render(request, "loadedfiles.html", {"documents": documents})
+
+
 def login(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -76,11 +100,12 @@ def login(request):
             return redirect("chatbot")
         else:
             error_message = "Invalid username or password"
-            return render(request, "login", {"error_message": error_message})
+            return render(request, "login.html", {"error_message": error_message})
     else:
         return render(request, "login.html")
 
 
+@user_passes_test(is_admin)
 def register(request):
     if request.method == "POST":
         username = request.POST["username"]

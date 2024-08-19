@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corpomedica</title>
+    <style>
+      /* Estilos generales */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+
+      /* Barra de navegación */
+      .navbar {
+        background-color: #063a30;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+      }
+
+      .navbar a {
+        color: #bef6c8;
+        text-decoration: none;
+        padding: 8px 15px;
+        font-weight: bold;
+      }
+
+      .navbar a:hover {
+        color: #e95d41; /* Naranja al hacer hover */
+      }
+
+      /* Estilos del contenido */
+      .container {
+        margin: 50px auto;
+        max-width: 600px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #063a30;
+      }
+
+      .documents-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .documents-list li {
+        background-color: #53b899;
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 8px;
+        color: white;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+      <div class="logo">
+        <h2 style="margin: 0">Corpomedica</h2>
+      </div>
+      <div class="nav-links">
+        <a href="{% url 'chatbot' %}">Chatbot</a>
+      </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="container">
+      <h1>Lista de documentos cargados</h1>
+      <ul class="documents-list">
+        {% for document in documents %}
+        <li>- {{ document }}</li>
+        {% empty %}
+        <li>No se han cargado documentos.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

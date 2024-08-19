@@ -5,7 +5,7 @@
 {% block styles %}
 <style>
   body {
-    background-color: #f0f0f0;
+    background-color: #53b899;
   }
   .login-container {
     display: flex;
@@ -15,10 +15,12 @@
   }
   .card {
     max-width: 400px;
+    background-color: #ffffff;
+    border-color: none;
   }
   .card-header {
-    background-color: #007bff;
-    color: white;
+    background-color: #063a30;
+    color: #bdf6c8;
     font-size: 24px;
     font-weight: bold;
     text-align: center;
@@ -30,6 +32,7 @@
     margin-bottom: 20px;
   }
   label {
+    color: #063A30;
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
@@ -44,7 +47,7 @@
     margin-bottom: 10px;
   }
   button[type=submit] {
-    background-color: #007bff;
+    background-color: #ff851b;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -55,8 +58,12 @@
     width: 100%;
   }
   button[type=submit]:hover {
-    background-color: #0062cc;
+    background-color: #ff6f00;
   }
+
+
+  
+  
   .alert-danger {
     background-color: #f8d7da;
     color: #721c24;
@@ -79,11 +86,11 @@
       <form method="post">
         {% csrf_token %}
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="username">Usuario</label>
           <input type="text" class="form-control" id="username" name="username" required>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Contraseña</label>
           <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <button type="submit">Login</button>
