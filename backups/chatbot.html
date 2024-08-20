@@ -110,7 +110,7 @@
 <div class="chat-container">
   <div class="card flex-grow-1">
     <!-- Barra superior de color verde -->
-    <div class="card-header"><b>CORPOMEDICA ChatBot</b></div>
+    <div class="card-header"><b>CORPOMEDICA Chatbot</b></div>
     {% if user.is_authenticated %}
     <div class="card-header d-flex justify-content-between align-items-center">
       <b>Bienvenido, {{user.username|upper}}</b>
@@ -133,10 +133,10 @@
       <li class="message received">
           <div class="message-text">
             <div class="message-sender">
-              <b>CORPORITO</b>
+              <b>AI Chatbot</b>
             </div>
             <div class="message-content">
-              Hola {{user.username}}, soy Corporito tu asistente virtual. En que te puedo ayudar hoy?
+              Hola {{user.username}}, soy tu asistente virtual, en que te puedo ayudar?
             </div>
           </div>
         </li> 
@@ -173,13 +173,16 @@ messageForm.addEventListener("submit", (event) => {
         return;
     }
 
+    // Limpiar los mensajes anteriores antes de agregar el nuevo
+    messagesList.innerHTML = "";
+
     // Añadir el nuevo mensaje enviado por el usuario
     const userMessageItem = document.createElement("li");
     userMessageItem.classList.add("message", "sent");
     userMessageItem.innerHTML = `
         <div class="message-text">
             <div class="message-sender">
-                <b>{{user.username|upper}}</b>
+                <b>{{user.username}}</b>
             </div>
             <div class="message-content">
                 ${message}
@@ -200,14 +203,30 @@ messageForm.addEventListener("submit", (event) => {
     })
     .then((response) => response.json())
     .then((data) => {
-      
+        // Limpiar los mensajes anteriores (incluyendo el mensaje del usuario)
+        messagesList.innerHTML = "";
+
+        // Añadir el mensaje del usuario nuevamente
+        const userMessageItemAgain = document.createElement("li");
+        userMessageItemAgain.classList.add("message", "sent");
+        userMessageItemAgain.innerHTML = `
+            <div class="message-text">
+                <div class="message-sender">
+                    <b>{{user.username}}</b>
+                </div>
+                <div class="message-content">
+                    ${message}
+                </div>
+            </div>`;
+        messagesList.appendChild(userMessageItemAgain);
+
         // Añadir la respuesta del chatbot
         const chatbotMessageItem = document.createElement("li");
         chatbotMessageItem.classList.add("message", "received");
         chatbotMessageItem.innerHTML = `
         <div class="message-text">
             <div class="message-sender">
-              <b>CORPORITO</b>
+              <b>AI Chatbot</b>
             </div>
             <div class="message-content">
                 ${data.response}

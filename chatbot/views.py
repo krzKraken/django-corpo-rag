@@ -39,7 +39,7 @@ def ask_openai(message):
         messages=[
             {
                 "role": "system",
-                "content": "Eres un asistente, vas a responder a las preguntas que te hagan de una forma concreta y corta",
+                "content": "Eres un asistente virtual, vas a responder a las preguntas que te hagan de una forma corta, concreta y precisa, te llamas Corporito.",
             },
             {
                 "role": "user",
@@ -74,9 +74,39 @@ def chatbot(request):
         chat.save()
 
         return JsonResponse(
-            {"message": message, "response": response},
+            {
+                "message": message,
+                "response": response,
+            },
         )
     return render(request, "chatbot.html", {"chats": chats})
+
+
+def ask_embedding(message):
+    # TODO: Embedding answer here...
+    return f"programar respuesta para {message}"
+
+
+@login_required
+def chatdocs(request):
+    if request.method == "POST":
+        message = request.POST.get("message")
+        response = ask_embedding("pregunta del usuario")
+        chat = Chat(
+            user=request.user,
+            message=message,
+            response=response,
+            created_at=timezone.now,
+        )
+        chat.save()
+        return JsonResponse(
+            {
+                "message": message,
+                "response": response,
+            }
+        )
+
+    return render(request, "chatdocs.html")
 
 
 @login_required
@@ -108,7 +138,6 @@ def loadedfiles(request):
         )
         return redirect("loadedfiles")
 
-    # TODO: Aquí harías la lógica para obtener los documentos
     return render(
         request,
         "loadedfiles.html",
