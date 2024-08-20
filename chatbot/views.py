@@ -1,9 +1,11 @@
 import os
 
 import openai
-from django.contrib import auth
+from django.conf import settings
+from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
+from django.core.files.storage import FileSystemStorage
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.utils import timezone
@@ -13,8 +15,10 @@ from src import file_processing
 
 from .models import Chat
 
-# Create your views here.
+# Ruta almacenamiento de documentos
+DOCS_DIR = os.path.join(settings.MEDIA_ROOT)
 
+# Views
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
@@ -77,17 +81,41 @@ def chatbot(request):
 
 @login_required
 def loadedfiles(request):
-    documents = file_processing.files_in_docs()
-    # Aquí harías la lógica para obtener los documentos
 
-    # documents = [
-    #     {"name": "nombre documento corto"},
-    #     {"name": "nombre de documento otro mas largo"},
-    #     {
-    #         "name": "nombre de documento mucho mucho mas largo para pruebas, probando overflow en texto"
-    #     },
-    # ]
-    return render(request, "loadedfiles.html", {"documents": documents})
+    documents = file_processing.files_in_docs()
+    # Asegurarnos que docs existe
+    if not os.path.exists(DOCS_DIR):
+        os.makedirs(DOCS_DIR)
+
+    # Manejo de carga de archivos
+    if request.method == "POST" and request.FILES.get("documento_pdf"):
+        archivo_pdf = request.FILES["documento_pdf"]
+        # Validar que el archivo sea un pdf
+        if archivo_pdf.content_type != "application/pdf":
+            return render(
+                request,
+                "loadedfiles.html",
+                {
+                    "documents": documents,
+                    "error_message": "Solo se permiten archivos pdf por el momento",
+                },
+            )
+        # Almacenamiento seguro del archivo
+        fs = FileSystemStorage(location=DOCS_DIR)
+        archivo_nombre = fs.save(archivo_pdf.name, archivo_pdf)
+        messages.success(
+            request, f"El archivo '{archivo_nombre}' se ha cargado correctamente"
+        )
+        return redirect("loadedfiles")
+
+    # TODO: Aquí harías la lógica para obtener los documentos
+    return render(
+        request,
+        "loadedfiles.html",
+        {
+            "documents": documents,
+        },
+    )
 
 
 def login(request):

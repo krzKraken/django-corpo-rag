@@ -10,6 +10,7 @@ from corpo_chatbot.settings import BASE_DIR
 allowed_files = ["pdf"]
 
 
+# Method to check pdf files
 def files_in_docs():
     print(colored(f"\n[+] Loocking for files on: ./docs", "red"))
     print(colored(f"\n[+] files:\n", "red"))

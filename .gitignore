@@ -1,4 +1,10 @@
-
+# Type files
+.pdf
+*.pdf
+.doc
+*.doc
+.docs
+*.docs 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

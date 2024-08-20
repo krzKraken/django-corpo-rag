@@ -59,6 +59,69 @@
         color: white;
         text-align: left;
       }
+      .input-container {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+      }
+      .alert-danger {
+        background-color: #f8d7da;
+        width: 90%;
+        color: #721c24;
+        padding: 0px 10px;
+        margin: 0 auto 0px auto; /* Esto centra el div horizontalmente */
+        border: 1px solid #f5c6cb;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      .messages {
+        background-color: #53b899;
+        width: 90%;
+        color: #063a30;
+        padding: 0px 10px;
+        margin: 0 auto 0px auto; /* Esto centra el div horizontalmente */
+        border: 1px solid #063a30;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+
+      #modern-input {
+        width: 100%;
+        /* padding: 10px 0px 10px 10px; */
+        font-size: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s ease;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      #modern-input:focus {
+        border-color: #e95d41;
+        box-shadow: 0 2px 5px rgba(0, 123, 255, 0.25);
+      }
+
+      #modern-input::placeholder {
+        color: #aaa;
+        font-style: italic;
+      }
+
+      button[type="submit"] {
+        background-color: #ff851b;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        margin-top: 10px;
+        padding: 5px 0px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 50%;
+      }
+      button[type="submit"]:hover {
+        background-color: #ff6f00;
+      }
     </style>
   </head>
   <body>
@@ -74,6 +137,31 @@
 
     <!-- Contenido principal -->
     <div class="container">
+      <h1>Subir Documento PDF</h1>
+
+      {% if error_message %}
+      <div class="alert alert-danger" role="alert">{{ error_message }}</div>
+      {% endif %} {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <!-- Formulario para cargar un documento PDF -->
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input
+          id="modern-input"
+          type="file"
+          name="documento_pdf"
+          value="application/pdf"
+          placeholder="Carga tu archivo..."
+          required
+        />
+        <button type="submit">Cargar Documento</button>
+      </form>
+      <!-- Documentos cargados -->
       <h1>Lista de documentos cargados</h1>
       <ul class="documents-list">
         {% for document in documents %}
