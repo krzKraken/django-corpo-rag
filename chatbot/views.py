@@ -12,6 +12,8 @@ from django.utils import timezone
 from dotenv import load_dotenv
 
 from src import file_processing
+from src.embeddingchat import get_embedding_response
+from src.response_to_html import format_to_html
 
 from .models import Chat
 
@@ -39,7 +41,8 @@ def ask_openai(message):
         messages=[
             {
                 "role": "system",
-                "content": "Eres un asistente virtual, vas a responder a las preguntas que te hagan de una forma corta, concreta y precisa, te llamas Corporito.",
+                "content": "Eres un asistente virtual, vas a responder a las preguntas que te hagan de una forma corta, concreta."
+                "",
             },
             {
                 "role": "user",
@@ -64,6 +67,7 @@ def chatbot(request):
     if request.method == "POST":
         message = request.POST.get("message")
         response = ask_openai(message)
+        response = format_to_html(response)
         # NOTE: Create a chat for db
         chat = Chat(
             user=request.user,
@@ -83,15 +87,20 @@ def chatbot(request):
 
 
 def ask_embedding(message):
+
     # TODO: Embedding answer here...
-    return f"programar respuesta para {message}"
+
+    response = get_embedding_response(message)
+
+    return response
 
 
 @login_required
 def chatdocs(request):
     if request.method == "POST":
         message = request.POST.get("message")
-        response = ask_embedding("pregunta del usuario")
+        response = ask_embedding(message)
+        response = format_to_html(response)
         chat = Chat(
             user=request.user,
             message=message,

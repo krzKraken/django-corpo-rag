@@ -4,16 +4,16 @@
   html {
     height: 100%;
     margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* Cambiamos las barras superiores a verde */
-  .card-header {
-    /* background-color: #00b999; */
-    background-color: #063a30;
-    color: white;
-    padding: 10px;
-    font-size: 18px;
-    text-align: center;
+  /* Estructura general */
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
   }
   a {
     color: #ffffff;
@@ -23,20 +23,30 @@
   a:hover {
     color: #ff5d3e;
     text-decoration: none;
-
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
   }
 
-  .messages-box {
-    height: 200px; /* Altura fija para el contenedor de mensajes */
-    /* overflow-y: auto; */
-    /* background-color: #f5f5f5; /* Fondo para diferenciar */
-    background-color: #ff0000; /* Fondo para diferenciar */
+  .card-header {
+    background-color: #063a30;
+    color: white;
     padding: 10px;
-    border-radius: 10px;
-    margin: 20px;
+    text-align: center;
+  }
+
+  .card-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #f8f9fa;
   }
 
   .messages-list {
+    list-style: none;
     padding-left: 0;
     margin: 0;
   }
@@ -54,71 +64,55 @@
   .sent {
     background-color: #dcf8c6;
     align-self: flex-end;
+    margin-left: 40px;
   }
 
   .received {
     background-color: #f1f0f0;
     align-self: flex-start;
+    margin-right: 40px;
   }
 
+  /* Barra de input fija */
   .message-form {
     display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
     padding: 10px;
-    background-color: #f8f9fa;
+    background-color: #ffffff;
+    border-top: 1px solid #e5e5e5;
   }
 
   .message-input {
     flex: 1;
-    border-radius: 0;
-    border-right: none;
-  }
-
-  .form-control {
     border-radius: 4px;
     border: 1px solid #01b091;
-    box-shadow: none;
-  }
-
-  .form-control:focus{
-    outline: none;
-    box-shadow: 0 0 4px rgba(233,93,65,0.8);
-    border-color: #ff5d3e;
+    padding: 10px;
   }
 
   .btn-send {
-    border-radius: 0;
+    border-radius: 4px;
     background-color: #01b091;
+    margin-left: 10px;
+    padding: 10px 20px;
   }
 
-  .btn-send:hover{
+  .btn-send:hover {
     background-color: #ff5d3e;
-  }
-
-
-  .chat-container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
 </style>
 {% endblock %} {% block content %}
 <div class="chat-container">
-  <div class="card flex-grow-1">
-    <!-- Barra superior de color verde -->
-    <div class="card-header"><b>CORPOMEDICA ChatBot</b></div>
+  <div class="card">
+    <div class="card-header">
+      <b>CORPOMEDICA ChatBot</b>
+    </div>
     {% if user.is_authenticated %}
     <div class="card-header d-flex justify-content-between align-items-center">
       <b>Bienvenido, {{user.username|upper}}</b>
       <div>
-      <a href='loadedfiles'>Docs</a>
-      <spam> - </spam>
-      <a href="logout">Logout</a>
-        </div>
+        <a href="loadedfiles">Docs</a>
+        <spam> - </spam>
+        <a href="logout">Logout</a>
+      </div>
     </div>
     {% else %}
     <div class="card-header">
@@ -126,51 +120,54 @@
       <a style="color: white" href="register">Register</a>
     </div>
     {% endif %}
-    
-  
-  <div class='card-body'>
-    <ul class='list-unstyled messages-list'>
-      <li class="message received">
+    <div class="card-body">
+      <ul class="messages-list">
+        <li class="message received">
           <div class="message-text">
             <div class="message-sender">
-              <b>CORPORITO</b>
+              <b>ChatGPT4</b>
             </div>
             <div class="message-content">
-              Hola {{user.username}}, soy Corporito tu asistente virtual. En que te puedo ayudar hoy?
+              Hola {{user.username}}, soy tu asistente de ChatGPT4. En que te
+              puedo ayudar?
             </div>
           </div>
-        </li> 
+        </li>
       </ul>
-  </div>
+    </div>
 
-
-  <!-- Formulario de mensaje en la parte inferior -->
-  <form class="message-form">
-    {% csrf_token %}
-    <div class="input-group">
+    <form class="message-form">
+      {% csrf_token %}
       <input
         type="text"
         class="form-control message-input"
-        placeholder="Type your message..."
+        placeholder="Escribe tu mensaje..."
       />
-      <div class="input-group-append">
-        <button type="submit" class="btn btn-primary btn-send">Send</button>
-      </div>
-    </div>
-  </form>
+      <button type="submit" class="btn btn-primary btn-send">Enviar</button>
+    </form>
+  </div>
 </div>
 
 <script>
-const messagesList = document.querySelector(".messages-list");
-const messageForm = document.querySelector(".message-form");
-const messageInput = document.querySelector(".message-input");
+  const messagesList = document.querySelector(".messages-list");
+  const messageForm = document.querySelector(".message-form");
+  const messageInput = document.querySelector(".message-input");
+  const chatBody = document.querySelector(".card-body");
 
-messageForm.addEventListener("submit", (event) => {
+  // Hacer scroll automático hacia el final del chat
+  function scrollToBottom() {
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  // Desplazarse al final cuando se cargan los mensajes
+  scrollToBottom();
+
+  messageForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const message = messageInput.value.trim();
     if (message.length === 0) {
-        return;
+      return;
     }
 
     // Añadir el nuevo mensaje enviado por el usuario
@@ -187,35 +184,42 @@ messageForm.addEventListener("submit", (event) => {
         </div>`;
     messagesList.appendChild(userMessageItem);
 
+    // Hacer scroll automáticamente hacia el final después de enviar el mensaje
+    scrollToBottom();
+
     messageInput.value = "";
 
     // Enviar el mensaje al servidor
     fetch("", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-            csrfmiddlewaretoken: document.querySelector("[name=csrfmiddlewaretoken]").value,
-            message: message,
-        }),
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        csrfmiddlewaretoken: document.querySelector(
+          "[name=csrfmiddlewaretoken]",
+        ).value,
+        message: message,
+      }),
     })
-    .then((response) => response.json())
-    .then((data) => {
-      
+      .then((response) => response.json())
+      .then((data) => {
         // Añadir la respuesta del chatbot
+
         const chatbotMessageItem = document.createElement("li");
         chatbotMessageItem.classList.add("message", "received");
         chatbotMessageItem.innerHTML = `
         <div class="message-text">
             <div class="message-sender">
-              <b>CORPORITO</b>
+              <b>ChatGPT4</b>
             </div>
             <div class="message-content">
                 ${data.response}
             </div>
         </div>`;
         messagesList.appendChild(chatbotMessageItem);
-    });
-});
 
-  </script>
+        // Hacer scroll automáticamente hacia el final después de recibir la respuesta
+        scrollToBottom();
+      });
+  });
+</script>
 {% endblock %}
