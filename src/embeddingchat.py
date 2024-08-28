@@ -47,8 +47,7 @@ def complete_query(query, llm, chroma_db, prompt):
     return results
 
 
-text = """Eres un asistente experto que responde preguntas basadas en los documentos relevantes."
-"Por favor, responde a mi pregunta basándote en estos documentos"""
+text = """Eres un asistente experto que responde preguntas basadas en los documentos relevantes.Por favor, responde a mi pregunta basándote en estos documentos. Si no sabes la respuesta solo di que no tienes informacion de este documento"""
 
 
 def get_embedding_response(question):
