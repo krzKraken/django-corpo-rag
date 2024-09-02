@@ -57,3 +57,29 @@ def create_embedding_from_pdf(name):
         persist_directory=vectordb_path,
     )
     vectorstore.as_retriever()
+
+
+def get_unique_sources_list():
+    vectordb_path = os.path.join(BASE_DIR, "vectordb")
+    persistent_client = chromadb.PersistentClient(path=vectordb_path)
+    collection_data = persistent_client.get_collection("langchain").get(
+        include=["embeddings", "documents", "metadatas"]
+    )
+
+    # Extrae los metadatos
+    metadatas = collection_data["metadatas"]
+
+    # Obtén los valores únicos de 'source'
+    sources = set()
+    if metadatas:
+        for metadata in metadatas:
+            source = metadata.get("source", None)
+            if source:
+                sources.add(source)
+    else:
+        print(colored(f"[!] No metadatas loaded", "red"))
+
+    # Obtener solo el nombre de archivo de cada ruta
+    file_names = list(set(source.split("/")[-1] for source in sources))
+
+    return file_names

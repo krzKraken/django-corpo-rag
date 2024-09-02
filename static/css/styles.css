@@ -1,9 +1,9 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
-}
+} */
 
 body {
   background-color: #53b899;
@@ -153,23 +153,24 @@ button[type="submit"]:hover {
   background-color: #ff6f00;
 }
 
-.alert-danger {
+/* .alert-success {
   background-color: #f8d7da;
   color: #721c24;
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #f5c6cb;
   border-radius: 4px;
-}
+} */
 
 /* chat style */
 .chat-container {
-  padding: 30px;
+  padding: 30px 50px;
   display: flex;
   flex-direction: column;
-  height: 95vh; /* El chat ocupa el 95% de la pantalla en vertical */
+  height: 90vh; /* El chat ocupa el 95% de la pantalla en vertical */
   width: 95vw; /* El chat ocupa el 95% de la pantalla en horizontal */
-  margin-top: 10vh; /* Centra el chat verticalmente y horizontalmente */
+  margin-top: 9vh;
+  margin-bottom: 5vh;
   background-color: #ffffff; /* Color de fondo similar a WhatsApp */
   border-radius: 8px; /* Bordes redondeados para el contenedor del chat */
 }
@@ -250,4 +251,26 @@ button[type="submit"]:hover {
 
 .btn-send:hover {
   background-color: #075e54; /* Color del botón al hacer hover */
+}
+
+/* Estilos del contenido  loadedfiles page*/
+.container {
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 95vw;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+h1 {
+  color: #063a30;
+}
+
+.document-list-container {
+  max-height: 60vh; /* Limita la altura de la lista */
+  overflow-y: auto; /* Habilita el scroll vertical */
 }

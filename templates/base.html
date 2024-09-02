@@ -10,9 +10,10 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 
     
-    {% block styles %}{% endblock %}
+    {% block styles %}
     <link rel='stylesheet' href='{% static "css/styles.css" %}'>
 
+    {% endblock %}
     
   
   </head>
@@ -32,11 +33,19 @@
       </div>
 
       {% if user.is_authenticated %}
+
+      <div>
+        <div class="nav-links">
+          <a href="loadedfiles">Docs</a>
+        </div>
+      </div>
       <div>
         <div class="nav-links">
           <a href="chatbot">Chatbot</a>
         </div>
       </div>
+
+
       <div>
         <div class="nav-links">
           <a href="chatdocs">chatdocs</a>

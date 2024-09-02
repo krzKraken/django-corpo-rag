@@ -10,9 +10,11 @@ from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.utils import timezone
 from dotenv import load_dotenv
+from termcolor import colored
 
 from src import file_processing
 from src.embeddingchat import get_embedding_response
+from src.embeddings import create_embedding_from_pdf, get_unique_sources_list
 from src.response_to_html import format_to_html
 
 from .models import Chat
@@ -120,8 +122,11 @@ def chatdocs(request):
 
 @login_required
 def loadedfiles(request):
+    try:
 
-    documents = file_processing.files_in_docs()
+        documents = get_unique_sources_list()
+    except:
+        return render(request, "loadedfiles.html")
     # Asegurarnos que docs existe
     if not os.path.exists(DOCS_DIR):
         os.makedirs(DOCS_DIR)
@@ -131,6 +136,7 @@ def loadedfiles(request):
         archivo_pdf = request.FILES["documento_pdf"]
         # Validar que el archivo sea un pdf
         if archivo_pdf.content_type != "application/pdf":
+
             return render(
                 request,
                 "loadedfiles.html",
@@ -139,13 +145,33 @@ def loadedfiles(request):
                     "error_message": "Solo se permiten archivos pdf por el momento",
                 },
             )
-        # Almacenamiento seguro del archivo
-        fs = FileSystemStorage(location=DOCS_DIR)
-        archivo_nombre = fs.save(archivo_pdf.name, archivo_pdf)
-        messages.success(
-            request, f"El archivo '{archivo_nombre}' se ha cargado correctamente"
-        )
-        return redirect("loadedfiles")
+        if archivo_pdf.name in documents:
+            print(colored("\n[!] Existe", "red"))
+            error_message = "El archivo o nombre del pdf ya existe en la base de datos"
+            return render(
+                request,
+                "loadedfiles.html",
+                {"documents": documents, "error_message": error_message},
+            )
+        else:
+            print(colored(f"[!] No existe", "red"))
+            print(
+                colored(
+                    f"\n[+] El archivo {archivo_pdf} no existia en la base de datos, creandolo....",
+                    "blue",
+                )
+            )
+            fs = FileSystemStorage(location=DOCS_DIR)
+            archivo_nombre = fs.save(archivo_pdf.name, archivo_pdf)
+
+            create_embedding_from_pdf(archivo_pdf.name)
+
+            print(colored(f"\n[!] Archivo_pdf: {archivo_pdf}", "red"))
+            print(colored(f"\n[!] Documents: {documents}", "red"))
+            messages.success(
+                request, f"El archivo '{archivo_pdf}' se ha cargado correctamente"
+            )
+            return redirect("loadedfiles")
 
     return render(
         request,

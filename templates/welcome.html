@@ -3,144 +3,8 @@
 
 
     {% block title %}Bienvenido al CorpoChat{% endblock %}
-    {% block styles %}
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-      }
-
-      body {
-        background-color: #53b899;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-      }
-
-      .navbar {
-        width: 100%;
-        background-color: #00362c;
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding: 0 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
-      }
-
-      .navbar .logo {
-        font-size: 24px;
-        font-weight: bold;
-        color: #53b899;
-      }
-
-      .navbar .nav-links a {
-        color: #53b899;
-        text-decoration: none;
-        margin-left: 20px;
-        font-size: 18px;
-        font-weight: bold;
-        transition: color 0.3s ease;
-      }
-
-      .navbar .nav-links a:hover {
-        color: #e95d41;
-      }
-
-      .welcome-container {
-        background-color: rgba(255, 255, 255, 0.8);
-        border-radius: 10px;
-        padding: 40px;
-        text-align: center;
-        max-width: 600px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0);
-        z-index: 1;
-      }
-
-      .welcome-container h1 {
-        font-size: 36px;
-        color: #53b899;
-        margin-bottom: 20px;
-      }
-
-      .welcome-container p {
-        font-size: 20px;
-        color: #ff851b;
-        margin-bottom: 40px;
-      }
-
-      .welcome-container .btn {
-        background-color: #ff851b;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-size: 18px;
-        cursor: pointer;
-        text-decoration: none;
-        /* transition: background-color 0.3s ease; */
-      }
-
-      .welcome-container .btn:hover {
-        background-color: #ff6f00;
-      }
-
-      /* Para centrar el contenido correctamente debajo de la barra de navegación */
-      .main-content {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding-top: 60px; /* Compensa la altura de la barra de navegación */
-      }
-    </style>
-    {% endblock %}
-
-    {% block navbar %}  
-    <header class="navbar">
-      <div class="logo">
-        <a href="/">
-          <img
-            src="{% static '/images/logo.jpg' %}"
-            alt="Corpomedica"
-            width="40"
-            height="40"
-          />
-        </a>
-      </div>
-
-      {% if user.is_authenticated %}
-      <div>
-        <div class="nav-links">
-          <a href="chatbot">Chatbot</a>
-        </div>
-      </div>
-      <div>
-        <div class="nav-links">
-          <a href="chatdocs">chatdocs</a>
-        </div>
-      </div>
-      <div>
-        <div class="nav-links">
-          <a href="logout">logout</a>
-        </div>
-      </div>
-      {% else %}
-      <div class="nav-links">
-        <a href="login">Login</a>
-      </div>
-      {% endif %}
-    </header>
-    {% endblock %}
+    
+ 
     {% block content%}
     <div class="main-content">
       <div class="welcome-container">
@@ -151,7 +15,7 @@
           servicio de nuestros dispositivos y equipos medicos.
           Tambien tienes la posibilidad de chatear directamente con chatgpt4
         </p>
-        <a href="login" class="btn">Ingresa aquí</a>
+        <!-- <a href="login" class="btn">Ingresa aquí</a> -->
       </div>
     </div>
     {% endblock %}

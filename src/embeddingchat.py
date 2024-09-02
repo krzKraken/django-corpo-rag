@@ -28,7 +28,8 @@ chroma_local = Chroma(
 
 
 def prompt(text):
-    system_prompt = text + "{context}"
+    system_prompt = text + " {context}"
+    print(colored(system_prompt, "red"))
 
     prompt = ChatPromptTemplate.from_messages(
         [
@@ -44,13 +45,30 @@ def complete_query(query, llm, chroma_db, prompt):
     chain = create_stuff_documents_chain(llm, prompt)
     rag = create_retrieval_chain(retriever, chain)
     results = rag.invoke({"input": query})
+    # Printing retriever_response from embeddings docs
+    retriever_response = results["context"]
+    print(colored(retriever_response, "red"))
+
     return results
 
 
-text = """Eres un asistente experto que responde preguntas basadas en los documentos relevantes.Por favor, responde a mi pregunta basándote en estos documentos. Si no sabes la respuesta solo di que no tienes informacion de este documento"""
+text = """Eres un asistente experto que responde preguntas basadas en los documentos relevantes.Por favor, responde a mi pregunta basándote en estos documentos. Al final de cada respuesta menciona el origen del documento (nombre de documento) y pagina donde se encuentra. Si no sabes la respuesta solo di que no tienes informacion de este documento"""
 
 
 def get_embedding_response(question):
     response = complete_query(question, llm, chroma_local, prompt(text))["answer"]
     print(colored(f"\n[+] Response: {response}", "blue"))
     return response
+
+
+""" def get_embedding_response(question):
+    retrieved_docs, response = complete_query(question, llm, chroma_local, prompt(text))
+
+    print(colored(f"\n[+] response: {response}", "blue"))
+
+    if retrieved_docs:
+        print(colored("\n[+] retrieved documents:", "green"))
+        for doc in retrieved_docs:
+            print(colored(f"\ndocument: {doc['content']}", "yellow"))
+
+    return response """
