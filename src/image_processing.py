@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+
+# WARN: No se esta usando
+
 import io
 
 from PIL import Image

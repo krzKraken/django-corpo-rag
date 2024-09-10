@@ -6,7 +6,8 @@
 } */
 
 body {
-  background-color: #53b899;
+  /* background-color: #53b899; */
+  background-color: #ff0000;
   height: 100vh;
   display: flex;
   flex-direction: column;

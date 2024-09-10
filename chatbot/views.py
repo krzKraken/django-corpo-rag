@@ -43,7 +43,7 @@ def ask_openai(message):
         messages=[
             {
                 "role": "system",
-                "content": "Eres un asistente virtual, vas a responder a las preguntas que te hagan de una forma corta, concreta."
+                "content": "Eres un asistente virtual de una empresa de equipos medicos, vas a responder como su asistente personal."
                 "",
             },
             {
