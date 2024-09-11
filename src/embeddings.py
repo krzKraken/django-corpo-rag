@@ -37,6 +37,13 @@ def create_embedding_from_pdf(name):
     full_path = os.path.join(MEDIA_ROOT, name)
     # Reading pdf file
     loader = PyPDFLoader(full_path)
+    # TODO: obtener imagenes por pagina, luego hacer un append al doc.page_content
+    # documents = loader.load()
+    # for doc in documents:
+    #   contenido = doc.page_content
+    #   contenido_modificado = contenido + "\n informacion adicional: "
+    #   doc.page_content = contenido_modificado
+
     doc = loader.load()
     print(colored(f"\n[+] File: {full_path} has been loaded successfully\n", "green"))
     print(colored(f"\n[+] pages: {len(doc)}, 'green'"))
@@ -51,6 +58,14 @@ def create_embedding_from_pdf(name):
     print(colored(f"[+] Creando embedding from {full_path}", "blue"))
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     splits = text_splitter.split_documents(doc)
+    print(splits)
+    """ for doc in splits:
+        page_number = doc.metadata.get("page")
+        page_content = doc.page_content
+        print(f"pagina: {page_number}")
+        print(f"contenido: {page_content}")
+        print("-" * 50)
+    return """
     vectorstore = Chroma.from_documents(
         documents=splits,
         embedding=OpenAIEmbeddings(model="text-embedding-3-small"),

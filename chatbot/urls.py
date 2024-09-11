@@ -10,4 +10,5 @@ urlpatterns = [
     path("register", views.register, name="register"),
     path("logout", views.logout, name="logout"),
     path("loadedfiles", views.loadedfiles, name="loadedfiles"),
+    path("blog", views.blog, name="blog"),
 ]

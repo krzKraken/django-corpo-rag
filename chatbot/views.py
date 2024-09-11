@@ -51,7 +51,7 @@ def ask_openai(message):
                 "content": message,
             },
         ],
-        max_tokens=150,
+        max_tokens=500,
         temperature=1,
     )
     print(response)
@@ -95,6 +95,14 @@ def ask_embedding(message):
     response = get_embedding_response(message)
 
     return response
+
+
+@login_required
+def blog(request):
+    if request.method == "POST":
+        message = request.POST.get("message")
+        # TODO: Implementar guardado en base de datos y creacion de embeddings
+    return render(request, "blog.html")
 
 
 @login_required
