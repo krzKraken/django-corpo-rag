@@ -89,9 +89,6 @@ def chatbot(request):
 
 
 def ask_embedding(message):
-
-    # TODO: Embedding answer here...
-
     response = get_embedding_response(message)
 
     return response

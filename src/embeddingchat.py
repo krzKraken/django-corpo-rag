@@ -56,9 +56,13 @@ text = """Eres un asistente experto que responde preguntas basadas en los docume
 
 
 def get_embedding_response(question):
-    response = complete_query(question, llm, chroma_local, prompt(text))["answer"]
-    print(colored(f"\n[+] Response: {response}", "blue"))
-    return response
+    try:
+
+        response = complete_query(question, llm, chroma_local, prompt(text))["answer"]
+        print(colored(f"\n[+] Response: {response}", "blue"))
+        return response
+    except:
+        return "No fue posible conectar con la base de datos de embeddings"
 
 
 """ def get_embedding_response(question):
