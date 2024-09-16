@@ -45,6 +45,7 @@ def create_embedding_from_pdf(name):
     #   doc.page_content = contenido_modificado
 
     doc = loader.load()
+
     print(colored(f"\n[+] File: {full_path} has been loaded successfully\n", "green"))
     print(colored(f"\n[+] pages: {len(doc)}, 'green'"))
     # Creating vectordb folder

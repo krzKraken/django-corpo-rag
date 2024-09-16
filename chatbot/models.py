@@ -10,7 +10,7 @@ class Chat(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user.username}: {self.message}"
+        return f"{self.user.username.upper()}: {self.message}"
 
 
 # Blog messages
@@ -20,4 +20,4 @@ class Blog(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user.username} : {self.post}"
+        return f"{self.user.username.upper()} : {self.post}"

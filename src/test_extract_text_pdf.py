@@ -77,13 +77,13 @@ def extraer_imagenes_y_ocr(pdf_name, output_folder):
             texto_de_imagenes += texto_imagen + "\n"  # Agregar el texto extraído
 
             # Guardar la imagen en la carpeta de salida (opcional)
-            # image_filename = f"page_{page_num + 1}_image_{image_index + 1}.{image_ext}"
-            # image_path = os.path.join(output_folder, image_filename)
+            image_filename = f"page_{page_num + 1}_image_{image_index + 1}.{image_ext}"
+            image_path = os.path.join(output_folder, image_filename)
 
-            # with open(image_path, "wb") as image_file:
-            # image_file.write(image_bytes)
+            with open(image_path, "wb") as image_file:
+                image_file.write(image_bytes)
 
-            # print(f"Imagen extraída: {image_path}")
+            print(f"Imagen extraída: {image_path}")
 
         # Guardar el texto extraído de las imágenes en esta página
         if texto_de_imagenes.strip():  # Solo si hay texto extraído
@@ -94,6 +94,13 @@ def extraer_imagenes_y_ocr(pdf_name, output_folder):
 
     # Retornar el texto extraído por página
     return texto_por_pagina
+
+
+# Extraer texto pasando imagen
+def extract_text_from_image(image_path):
+    img = Image.open(image_path)
+    text = pytesseract.image_to_string(img)
+    return text
 
 
 # Ejemplo de uso
