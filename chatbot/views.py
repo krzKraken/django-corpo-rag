@@ -17,7 +17,7 @@ from src.embeddingchat import get_embedding_response
 from src.embeddings import create_embedding_from_pdf, get_unique_sources_list
 from src.response_to_html import format_to_html
 
-from .models import Chat
+from .models import Blog, Chat
 
 # Ruta almacenamiento de documentos
 DOCS_DIR = os.path.join(settings.MEDIA_ROOT)
@@ -92,14 +92,6 @@ def ask_embedding(message):
     response = get_embedding_response(message)
 
     return response
-
-
-@login_required
-def blog(request):
-    if request.method == "POST":
-        message = request.POST.get("message")
-        # TODO: Implementar guardado en base de datos y creacion de embeddings
-    return render(request, "blog.html")
 
 
 @login_required
@@ -200,6 +192,31 @@ def login(request):
             return render(request, "login.html", {"error_message": error_message})
     else:
         return render(request, "login.html")
+
+
+@login_required
+def blog(request):
+
+    blogs = Blog.objects.filter()
+
+    if request.method == "POST":
+        message = request.POST.get("message")
+        blog = Blog(
+            user=request.user,
+            post=message,
+            created_at=timezone.now,
+        )
+        blog.save()
+
+        # TODO: Implementar guardado en base de datos y creacion de embeddings
+        return JsonResponse(
+            {
+                "message": message,
+                "response": f"Tu Post se ha almacenado correctamente. Contenido:\n<br>{message}",
+            }
+        )
+
+    return render(request, "blog.html", {"blogs": blogs})
 
 
 @user_passes_test(is_admin)

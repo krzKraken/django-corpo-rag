@@ -32,6 +32,24 @@ def read_pdf(pdf_name):
     return text
 
 
+def create_embedding_from_text(text):
+    vectordb_path = os.path.join(BASE_DIR, "vectordb")
+    try:
+        chromadb.PersistentClient(path=vectordb_path)
+    except:
+        print(colored(f"\n[!] Chromadb clients has already exist...\n", "yellow"))
+    print(colored(f"\n[+] Creando embedding from text...\n"))
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    splits = text_splitter.split_text(text)
+    print(colored(f"Splits desde texto: {splits}", "blue"))
+    vectorstore = Chroma.from_texts(
+        texts=splits,
+        embedding=OpenAIEmbeddings(model="text-embedding-3-small"),
+        persist_directory=vectordb_path,
+    )
+    vectorstore.as_retriever()
+
+
 def create_embedding_from_pdf(name):
 
     full_path = os.path.join(MEDIA_ROOT, name)

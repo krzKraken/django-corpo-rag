@@ -15,7 +15,7 @@ class Chat(models.Model):
 
 # Blog messages
 class Blog(models.Model):
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 

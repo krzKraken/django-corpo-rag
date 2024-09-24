@@ -5,17 +5,19 @@
 <div class="chat-container">
       <div class="card-body">
       <ul class="messages-list">
+        
+        {% for blog in blogs %}
         <li class="message received">
           <div class="message-text">
             <div class="message-sender">
-              <b>ChatGPT4</b>
+              <b>{{blog.user.username|upper}}</b>
             </div>
             <div class="message-content">
-              <!--TODO: Aqui la lectura de la base de datos para leer los comentarios del personal  -->
-            Aqui Lectura de los comentarios por usuario.
+              {{blog.post}}
             </div>
           </div>
         </li>
+        {% endfor %}
       </ul>
     </div>
 

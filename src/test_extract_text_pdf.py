@@ -5,7 +5,9 @@ import hashlib
 import os
 from io import BytesIO
 
+import cv2
 import fitz  # PyMuPDF
+import numpy as np
 import pytesseract
 from PIL import Image
 
@@ -71,6 +73,23 @@ def extraer_imagenes_y_ocr(pdf_name, output_folder):
 
             # Convertir los bytes de la imagen en una imagen PIL para el OCR
             image = Image.open(BytesIO(image_bytes))
+            # Aplicar filtros
+            img_cv = np.array(image)
+            if img_cv.shape[2] == 4:  # Verificar si tiene un canal alpha
+                img_cv = cv2.cvtColor(img_cv, cv2.COLOR_RGBA2BGR)
+            else:
+                img_cv = cv2.cvtColor(img_cv, cv2.COLOR_RGB2BGR)
+            img_cv = cv2.resize(img_cv, None, fx=3, fy=3, interpolation=cv2.INTER_CUBIC)
+            img_cv = cv2.medianBlur(img_cv, 9)
+            gray = cv2.cvtColor(img_cv, cv2.COLOR_BGRA2GRAY)
+            thresh1 = cv2.threshold(
+                gray, 0, 225, cv2.THRESH_OTSU | cv2.THRESH_BINARY_INV
+            )[1]
+
+            # Mostrar la imagen usando OpenCV (esto abre una ventana con la imagen)
+            cv2.imshow("Imagen", img_cv)
+            cv2.waitKey(0)  # Espera a que se presione una tecla
+            cv2.destroyAllWindows()
 
             # Usar OCR para extraer texto de la imagen
             texto_imagen = pytesseract.image_to_string(image)
