@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 
+import io
 import os
 
 import chromadb
+import fitz
+import pdfplumber
 import PyPDF2
+import pytesseract
 from dotenv import load_dotenv
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from PIL import Image
 from termcolor import colored
 
 from corpo_chatbot import settings
@@ -56,12 +61,47 @@ def create_embedding_from_pdf(name):
     # Reading pdf file
     loader = PyPDFLoader(full_path)
 
-    doc = loader.load()
+    documents = loader.load()
 
+    # Adding tables to documents
+    with pdfplumber.open(full_path) as pdf:
+        for page_index, page in enumerate(pdf.pages):
+            tables_to_text = str(page.extract_tables())
+            documents[page_index].page_content += tables_to_text
+
+    # Adding text from images to documents
+    pdf_document = fitz.open(full_path)
+
+    # iterate peer page
+    for page_num in range(len(pdf_document)):
+        page = pdf_document.load_page(page_num)
+        images = page.get_images(full=True)
+        if images:
+            for img_index, img in enumerate(images):
+                print(colored(f"img_index: {img_index}, page_num: {page_num}", "red"))
+                xref = img[0]
+                base_image = pdf_document.extract_image(xref)
+                image_bytes = base_image["image"]
+
+                # convert to PIL image
+                image = Image.open(io.BytesIO(image_bytes))
+
+                # extract text from image using pytesseract
+                extracted_text = pytesseract.image_to_string(image)
+
+                # Adding text to page_content
+
+                documents[page_num].page_content += f"\n{extracted_text}\n"
+    pdf_document.close()
+    with open("extracted_text.txt", "w") as f:
+        f.write(str(documents))
+
+    print(colored(f"\ndocuments page 1: {documents[0]}", "yellow"))
+    return
     # TODO: obtener imagenes por pagina, luego hacer un append al doc.page_content
 
     print(colored(f"\n[+] File: {full_path} has been loaded successfully\n", "green"))
-    print(colored(f"\n[+] pages: {len(doc)}, 'green'"))
+    print(colored(f"\n[+] pages: {len(documents)}, 'green'"))
     # Creating vectordb folder
     vectordb_path = os.path.join(BASE_DIR, "vectordb")
     try:
@@ -72,7 +112,7 @@ def create_embedding_from_pdf(name):
     # Creating embeddings and adding to vectordb
     print(colored(f"[+] Creando embedding from {full_path}", "blue"))
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-    splits = text_splitter.split_documents(doc)
+    splits = text_splitter.split_documents(documents)
     print(splits)
     """ for doc in splits:
         page_number = doc.metadata.get("page")
