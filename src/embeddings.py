@@ -60,7 +60,6 @@ def create_embedding_from_pdf(name):
     full_path = os.path.join(MEDIA_ROOT, name)
     # Reading pdf file
     loader = PyPDFLoader(full_path)
-
     documents = loader.load()
 
     # Adding tables to documents
@@ -76,9 +75,9 @@ def create_embedding_from_pdf(name):
     for page_num in range(len(pdf_document)):
         page = pdf_document.load_page(page_num)
         images = page.get_images(full=True)
+
         if images:
-            for img_index, img in enumerate(images):
-                print(colored(f"img_index: {img_index}, page_num: {page_num}", "red"))
+            for img in images:
                 xref = img[0]
                 base_image = pdf_document.extract_image(xref)
                 image_bytes = base_image["image"]
@@ -90,14 +89,16 @@ def create_embedding_from_pdf(name):
                 extracted_text = pytesseract.image_to_string(image)
 
                 # Adding text to page_content
+                documents[
+                    page_num
+                ].page_content += f"\n[Texto extraído de la imagen en la página {page_num+1}]:\n{extracted_text}\n"
 
-                documents[page_num].page_content += f"\n{extracted_text}\n"
     pdf_document.close()
     with open("extracted_text.txt", "w") as f:
         f.write(str(documents))
-
-    print(colored(f"\ndocuments page 1: {documents[0]}", "yellow"))
     return
+    print(colored(f"\ndocument:\n {documents[:]}", "yellow"))
+    # return
     # TODO: obtener imagenes por pagina, luego hacer un append al doc.page_content
 
     print(colored(f"\n[+] File: {full_path} has been loaded successfully\n", "green"))
