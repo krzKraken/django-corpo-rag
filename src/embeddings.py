@@ -4,7 +4,6 @@ import io
 import os
 
 import chromadb
-import fitz
 import pdfplumber
 import PyPDF2
 import pytesseract
@@ -13,6 +12,7 @@ from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from pdf2image import convert_from_path
 from PIL import Image
 from termcolor import colored
 
@@ -68,38 +68,27 @@ def create_embedding_from_pdf(name):
             tables_to_text = str(page.extract_tables())
             documents[page_index].page_content += tables_to_text
 
+    # Create the img folder
+    if not os.path.exists("img"):
+        os.makedirs("img")
     # Adding text from images to documents
-    pdf_document = fitz.open(full_path)
-
+    pages = convert_from_path(full_path)
     # iterate peer page
-    for page_num in range(len(pdf_document)):
-        page = pdf_document.load_page(page_num)
-        images = page.get_images(full=True)
+    for index, page in enumerate(pages):
+        # save the imgages in img/
+        image_path = f"img/page_{index+1}.jpg"
+        page.save(image_path, format="JPEG")
 
-        if images:
-            for img in images:
-                xref = img[0]
-                base_image = pdf_document.extract_image(xref)
-                image_bytes = base_image["image"]
+        text_imagen = pytesseract.image_to_string(Image.open(image_path), lang="eng")
+        if text_imagen.strip():
+            documents[
+                index
+            ].page_content += f"Texto extraido de imagen en {text_imagen}"
+        else:
+            print(f"No se detecto texto en las imagenes {index}")
 
-                # convert to PIL image
-                image = Image.open(io.BytesIO(image_bytes))
-
-                # extract text from image using pytesseract
-                extracted_text = pytesseract.image_to_string(image)
-
-                # Adding text to page_content
-                documents[
-                    page_num
-                ].page_content += f"\n[Texto extraído de la imagen en la página {page_num+1}]:\n{extracted_text}\n"
-
-    pdf_document.close()
     with open("extracted_text.txt", "w") as f:
         f.write(str(documents))
-    return
-    print(colored(f"\ndocument:\n {documents[:]}", "yellow"))
-    # return
-    # TODO: obtener imagenes por pagina, luego hacer un append al doc.page_content
 
     print(colored(f"\n[+] File: {full_path} has been loaded successfully\n", "green"))
     print(colored(f"\n[+] pages: {len(documents)}, 'green'"))
