@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-import io
 import os
 
 import chromadb
 import pdfplumber
 import PyPDF2
 import pytesseract
+import tiktoken
 from dotenv import load_dotenv
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFLoader
@@ -39,17 +39,23 @@ def read_pdf(pdf_name):
 
 def create_embedding_from_text(text):
     vectordb_path = os.path.join(BASE_DIR, "vectordb")
+
     try:
         chromadb.PersistentClient(path=vectordb_path)
     except:
         print(colored(f"\n[!] Chromadb clients has already exist...\n", "yellow"))
     print(colored(f"\n[+] Creando embedding from text...\n"))
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=30000, chunk_overlap=5000)
     splits = text_splitter.split_text(text)
-    print(colored(f"Splits desde texto: {splits}", "blue"))
+
+    # WARN: Eliminar
+    with open("splits.txt", "w") as file:
+        for split in splits:
+            file.write(split)
+
     vectorstore = Chroma.from_texts(
         texts=splits,
-        embedding=OpenAIEmbeddings(model="text-embedding-3-small"),
+        embedding=OpenAIEmbeddings(model="text-embedding-3-large"),
         persist_directory=vectordb_path,
     )
     vectorstore.as_retriever()
@@ -101,16 +107,10 @@ def create_embedding_from_pdf(name):
 
     # Creating embeddings and adding to vectordb
     print(colored(f"[+] Creando embedding from {full_path}", "blue"))
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=15000, chunk_overlap=2000)
     splits = text_splitter.split_documents(documents)
     print(splits)
-    """ for doc in splits:
-        page_number = doc.metadata.get("page")
-        page_content = doc.page_content
-        print(f"pagina: {page_number}")
-        print(f"contenido: {page_content}")
-        print("-" * 50)
-    return """
+
     vectorstore = Chroma.from_documents(
         documents=splits,
         embedding=OpenAIEmbeddings(model="text-embedding-3-small"),

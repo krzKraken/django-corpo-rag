@@ -11,15 +11,16 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from termcolor import colored
 
 from corpo_chatbot.settings import BASE_DIR
-from src.response_to_html import format_to_html
-from src.token_calculator import main
+
+# from src.response_to_html import format_to_html
+# from src.token_calculator import main
 
 # loading dotenv
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.1, max_tokens=800)
 chromadb_path = os.path.join(BASE_DIR, "vectordb")
 chroma_local = Chroma(
     persist_directory=chromadb_path,
@@ -28,7 +29,8 @@ chroma_local = Chroma(
 
 
 def prompt(text):
-    system_prompt = text + " {context}"
+    system_prompt = text + "{context}"
+    print(colored(f"########...ESTO ES UNA PRUEBA.############\n"))
     print(colored(system_prompt, "red"))
 
     prompt = ChatPromptTemplate.from_messages(
@@ -37,6 +39,8 @@ def prompt(text):
             ("human", "{input}"),
         ]
     )
+
+    print(colored(f"########...ESTO ES UNA PRUEBA.############\n"))
     return prompt
 
 
@@ -47,8 +51,10 @@ def complete_query(query, llm, chroma_db, prompt):
     results = rag.invoke({"input": query})
     # Printing retriever_response from embeddings docs
     retriever_response = results["context"]
-    print(colored(retriever_response, "red"))
+    print(colored(f"########...RETRIEVER.############\n", "green"))
+    print(colored(retriever_response, "blue"))
 
+    print(colored(f"########...RETRIEVER.############\n", "green"))
     return results
 
 

@@ -1,0 +1,961 @@
+ --------- page: 0, documento: ./docs/AM-CVC.pdf -----------
+ AMECATH
+D C
+
+Dimensions ;
+AMECATH Instructions for use
+Ref.
+TD-INV-CVC-IFU-10.1 Device Description:
+AMECATH Central Venous Catheters are Radiopaque and made from polyurethane. The
+Issue catheter tip is tapered with softer material.
+AMECATH Central Venous Catheters are single or multilumen catheters for adult and pediatric use.
+2 AMECATH Central Venous Catheters are placed centrally or peripherally. The adult catheters
+range includes catheters that resist high injection pressure.
+Date *Pressure capable catheters feature a pressure resistant lumen (marked PRESSURE)
+
+AMECATH Central Venous Catheters recommended to be cannulated centrally through: the
+19-04-2022 right internal and external jugular veins, the left internal and external jugular veins, the subclavian
+veins; the femoral veins or peripherally.
+
+Comments For Adult Central Venous Catheters: Catheters size ranges between 5 Fr to 9 Fr and length
+ranges between 15 Cm to 60 Cm.
+
+For Adult Pressure Resistant Central Venous Catheters: Catheters size ranges between 6 Fr to
+9 Fr and length ranges between 15 Cm to 20 Cm
+
+For Pediatric Central venous catheters: Catheters size ranges between 2 Fr to 6 Fr and length
+ranges between 5 Cm to 30 Cm
+
+AMECATH Central Venous Catheters are available in different designs and Kit configurations
+to cover all customer needs
+
+Device construction:
+
+Catheter Types
+
+* Adult Central venous Catheters
+* Pediatric Central Venous Catheters
+
+List of Accessories:
+
+Introducer Needle
+Syringe
+
+Guide Wire
+
+Vessel Dilator
+
+Scalpel
+
+Introducer over needle
+Guiding syringe
+Guiding Y connector
+End valves (V)
+
+EKG cable (E)
+
+Fixation wings
+
+Over the Needle Peel Away Introducer
+
+Ref: TD-INV-CVC4FU-101
+Issue 7
+
+Designed by:
+
+(… Marketing Approval Marketing Approval RA Approval
+
+Aalimeud
+
+ --------- page: 1, documento: ./docs/AM-CVC.pdf -----------
+ AMECATH
+N C
+
+Bimenstans AMECATH Instructions for use
+a —
+A5S
+Intended Use:
+Ref. The Central Venous Catheter is a sterile, single use device indicated to permit short term (<30
+days) central venous access for the treatment of diseases or conditions requiring central venous
+TD-INV-CVC-IFU-10.1 access, including, but not limited to the following:
+Lack of usable peripheral IV catheter.
+Issue Central venous pressure monitoring.
+Total parental nutrition (TPN).
+Multiple infusions of fluids, medication, or chemotherapy.
+Freguent blood sampling or receiving blood transfusion/blood products.
+Infusion that are hypertonic, hyperosmolar or infusion that have divergent PH values
+Comments Powerful injection of contrast media - pressure typgs 'ONLY (catheter reference start by
+the letter PR) where pressure may not exceed 300 psi.
+Contraindications:
+The central venous catheters are contraindicated in case of:
+In patients with bleeding disorders
+When the presence of another device related infection, bacteraemia or septicemia is
+known or suspected
+If severe chronic obstructive lung disease exists
+I previous episodes of venous thrombosis or vascular surgical procedure at the prospective
+insertion site have occurred
+Local tissue factors which may prevent proper devices stabilization andor access, like
+allergic reaction, or any dermatological disease
+Warnings and Precautions
+For single product and patient use only. Do not re-use, reprocess or re-sterilize. Do not use
+catheter or accessories ¡f any sign of product damage is visible.
+Reprocessing or Re-sterilization may damage the catheter and affect its integrity which
+may when re-used lead to sever deterioration in health and safety of patients.
+Product expiration date is identified on product label.
+Do not use non pressure resistant catheter for contrast media injection otherwise the catheter
+may rupture and leak. For this special purpose, use a pressure resistant type catheter.
+The catheter does not have any metallic components and can be exposed to various
+environmental conditions including thermal ignition source (during MRI) as long as no
+metal component is attached to it.
+The insertion technique has a significant influence on the complications and outcome
+of the catheter. Implantation must be performed by a competent and experienced
+catheter insertion team. Inexperienced personnel should not be permitted to perform the
+implantation except under the direct supervision of an experienced physician or surgeon.
+Be sure that you are familiar with the possible complications and emergency measures are
+known and available ¡f any occur.
+Patient requiring ventilation support is at great risk of pneumothorax during subclavian
+vein cannulation.
+Over advancement of guide wire can result in serious injuries or arrhythmias.
+Use the marking over the guide wire or over the dispenser to determine the advanced length.
+Do not advance the guide wire or catheter if unusual elastic resistance is encountered. Do
+not insert or withdraw the guide wire forcibly from any component. The wire could break
+or unravel, in which case both the catheter and guide wire must be removed simultaneously.
+Over advancement of the catheter can result in serious injury or arrhythmias.
+Use the marking on the catheter to determine the advanced length.
+Ref: TD-INV-CVC4FU-D]
+Issue.2
+Designed by:
+
+(9… Marketing Approval Marketing Approval RA Approval
+ --------- page: 2, documento: ./docs/AM-CVC.pdf -----------
+ AMECATH
+N C
+
+Dimensions
+
+AMECATH Instructions for use
+XX_/
+
+A5S
+
+Use 10 ml or greater syringe to flush the catheter to reduce risk of exceeding the pressure
+Ref. capacity of the catheter. If resistance is felt during flushing, no further attempt should be
+
+made. Further flushing could result in catheter rupture with possible leakage or immobilization.
+
+The pressure CVC is the only catheters to be used for powerful injection. Do not attempt to use
+TD-INV-CVC-IFU-10.1 the non-pressure multi-lumen catheter in this procedure as it may result in catheter rupture
+
+and high risk to the patient. The correct lumen is marked “PRESSURE” ¡e.: Use of lumens not
+
+marked “Pressure” for power injection of contrast media may cause failure of the catheter.
+Issue Failure to ensure patency of the catheter prior to power injection studies may result in
+
+catheter failure.
+
+Failure to warm contrast media to body temperature prior to power injection may result
+
+in catheter failure.
+
+Power injector machine pressure limiting feature may not prevent over pressurization of
+Comments an occluded catheter which may lead to catheter failure.
+
+Exceeding the maximum flow rate of 10 ml/sec or the maximum pressure of power injectors
+
+of 300 ps.i. may result in catheter failure andér tip dislodgement.
+
+In the rare event that a hub or connector separates from any component during the
+
+insertion or use, take all necessary steps and Precautions to prevent blood loss or air
+
+embolism and remove the catheter immediately.
+
+The catheters should not be placed in patient for more than 4 weeks.
+
+Only physician familiar with the technique should perform the catheter removal.
+
+Always review hospital protocols, possible complications and their treatments, precautions
+
+and warning.
+
+Do not use sharp instruments near the extension line or tubing. Do not use scissors to remove
+
+dressing, as this could possibly cut or damage catheter. Do not suture through any part of
+
+the catheter. Catheter tubing can tear when subjected to excessive force or rough edges.
+
+Use only smooth jawed forceps for clamping. Clamping the catheter repeatedly in the
+
+same spot could weaken the tubing. Change the position of the clamp regularly to prolong
+
+the life of the catheter. Avoid clamping near the adapter and hub of the catheter. Do not
+
+clamp the lumen portion of the catheter. Clamp only the extensions. Examine tubing for
+
+damage at the end of each treatment.
+
+Tape injection caps (or other types used) between treatments to safeguard them against
+
+accidental removal.
+
+It is recommended that only luer lock (threaded) connections be used with the catheter
+
+(including syringes, IV tubing, and injection caps). Repeated over tightening of syringes,
+
+and caps will reduce connector life and could lead to potential connector failure. Inspect
+
+the catheter frequently for nicks, scrapes, cuts, etc. which could impair its performance.
+
+The position of the tip of any central catheter should be verified
+
+Always be sure that the catheter tip is in the superior vena cava and has not entered into
+
+the right atrium to avoid possible arrhythmias or mural injury.
+
+Ultrasound should be used in the placement of catheters.
+
+Do not use absolute alcohol or acetone based product on the catheter. 2% chlorhexidine
+
+or lodine based solution is recommended as antiseptic solution.
+
+Itis not recommended to use ointments especially antimicrobial ointments or solutions on
+
+catheters as it may cause its degradation.
+
+Over tightening of catheter luers may lead to its failure.
+
+If any resistance is felt, then the needle should be pulled out with the wire still inside and
+
+the procedure repeated. This reduces the risk of entangling of the guide wire or its end
+
+being cut off by the needle tip.
+
+The valve of the guiding syringe should be opened by the guide wire advancer tip. Do not
+
+attempt passing the guide wire.
+
+The methods of application are variable, and could be modified by the Physician according
+
+to his own experience.
+
+Ref: TD-INV-CVC4FU-101
+Issue 7
+
+Designed by:
+
+(9… Marketing Approval Marketing Approval RA Approval
+
+ --------- page: 3, documento: ./docs/AM-CVC.pdf -----------
+ AMECATH
+X_,/
+
+Dimensions "
+AMECATH Instructions for use
+N
+A5
+Complications
+
+Ref.
+
+Early Potential Complications: Late Potential Complications:
+TD-INV-CVC-IFU-10.1 * Arterial puncture * Venous thrombosis
+
+Bleeding * Cardiac perforation and tamponade
+
+Issue Cardiac arrhythmias * Infection
+
+Injury to the thoracic duct * Hydrothorax
+Injury to surrounding nerves
+Air embolism
+
+Catheter embolus
+
+Comments Pneumothorax
+
+How Supplied:
+
+AMECATH Central Venous Catheter is a sterile, single-use Medical device
+
+Each AMECATH Central Venous Catheter Kit is packed in a PETG hard blister covered with
+Tyvek
+
+Each carton box includes 10 AMECATH Central Venous Catheter Kits
+
+AMECATH Central Venous Catheter method of application
+
+Before cannulation, you should consider the following
+
+Patient Evaluation Prior to Access Placement:
+
+Consideration Relevance
+
+Previous placement of a CVC is associated with central
+venous stenosis.
+
+History of previous CVC
+
+There is a correlation between pacemaker use and
+
+HIstory af pacemalier use central venous stenosis.
+
+Diabetes mellitus is associated with damage to
+
+History of diabetes mellitus
+vasculature necessary for internal accesses.
+
+History of anticoagulant therapy or any Abnormal coagulation may cause clotting or problems
+coagulation disorder with haemostasis of access site..
+
+Previously failed vascular accesses will limit available sites
+History of vascular access for access; the cause of a previous failure may influence
+planned access if the cause is still present.
+
+Rate of infection associated with specific access types
+
+History of heart valve disease or prosthesis | uc e o
+
+History of previous arm, neck, or chest Vascular damage associated with previous surgery or
+surgery/trauma trauma may limit viable access sites.
+
+Ref: TD-INV-CVC4FLHD]
+ssue. 7
+
+Designed by:
+
+f .. T
+(… Marketing Approval Marketing Approval RA Approval
+
+Aalimeud
+
+ --------- page: 4, documento: ./docs/AM-CVC.pdf -----------
+ AMECATH
+x__/
+
+Dimensions
+
+A5
+
+Ref.
+TD-INV-CVC-IFU-10.1
+
+Issue
+
+Comments
+
+Designed by:
+
+Mimed
+Aalimeud
+
+AMECATH Instructions for use
+x__,
+
+General preparation to obtain central access
+
+The basic preparation and equipment that is required for venous cannulation is the same
+regardless of the route or technique chosen. Clinicians who insert central venous catheter
+should be taught the technique by an experienced colleague.
+
+Equipments required for venous access
+
+* Sterile pack and antiseptic solution
+Local anesthetic; e.g. >5ml lignocaine 1% solution
+Appropriate CV catheter
+Syringes and needles
+Saline or heparinized saline to prime and flush the line after insertion
+Suture in case of fixation by suturing is determined e.g. 2/0 silk on a straight needle
+Sterile dressing
+Shaving equipment for the area if massive hairs (especially the femoral)
+Facility for Chest X-ay
+
+General technique for all routes
+General Steps:
+Catheterize the patient in the usual manner.
+
+Central Venous Catheters to be connected via its end to the extension line or the
+stopcock.Extension line or stopcock to be connected to the infusion set.
+
+1. Confirm that central venous access is needed and select the most appropriate
+route. Explain the procedure to the patient.
+
+Shave the needle insertion area ¡f very hairy.
+
+Using a strict aseptic technique, prepare and check all the equipment for use.
+
+Read instructions with the catheter.
+
+Sterilize the skin and drape the area.
+
+Infiltrate the skin and deeper tissues with local anesthetic. In cases where
+
+difficulty is anticipated use the small local anesthetic needle to locate the vein
+
+before using the larger needle. This reduces the risk of trauma to other structures.
+. Position the patient as for the specific route described - avoid long periods of
+head down, particularly in patients with difficulty in breathing.
+
+Identify the anatomical landmarks for the chosen route and insert the needle
+
+at the recommended point. After the needle has penetrated the skin, aspirate
+
+gently whilst advancing the needie as directed until the vein is entered.
+
+71. f the vein is not found, slowly withdraw the needle whilst gently aspirating;
+often the vein has been collapsed and transfixed by the entry of the needle.
+
+7.2. In case of using an over needle catheter, pull out the needle and leave the
+catheter in place inside the vein
+
+. Advance a guide wire (Seldinger technique), into the needle (or catheter if used)
+to the vein, flexible J-shape end first, then remove the needle (or the catheter)
+leaving the guide wire in the vein. Please monitor the marks on the guide wire
+to know the length of its advanced part.
+
+8.1. 1f any resistance is felt then the needle should be pulled out with the wire
+still inside, and the procedure repeated. This reduces the risk of entangling
+of the guide wire or its end being cut off by the needle tip.
+
+. Advance the guide wire equivalent length to the desired position of the catheter tip
+
+Ref: TD-INV-CVCFU-101
+Issue 7
+
+Marketing Approval Marketing Approval RA Approval
+ --------- page: 5, documento: ./docs/AM-CVC.pdf -----------
+ AMECATH
+N C
+
+Dimensions
+
+AMECATH Instructions for use
+—
+
+A5S
+
+9.1.An EKG lead attached to the end of the guide wire can confirmiits tip location
+
+Ref. at the right atrium through monitoring of an elevation of the P wave.
+* In case of using the guide wire syringe: while maintaining a firm grip on
+the syringe, push the guide wire advancer tip into the syringe until it passes
+TD-INV-CVC-IFU-10.1 through the valve. Once the advancer tip opens the valve, advance the guide
+wire all through the syringe (to the inside of the attached introducer needle
+*In case of using the guide wire Y connector, the connector is to be connected
+Issue between the needle and the syringe. Push the guide wire advancer tip into
+the connector valve arm until it passes through the valve. Once the advancer
+tip opens the valve, advance the guide wire to the inside of the attached
+
+introducer needle.
+
+9.2 the valve of the guide wire syringe or guide wire Y connector should be
+Comments opened by the guide wire advancer tip. Do not attempt passing the guide
+wire before opening the valve by the advancer tip otherwise the wire may be
+
+kinked or destroyed.
+
+. lt is necessary to dilate up the hole in the skin. Use the scalpel, with the blade
+facing away from the guide wire, and make a small incision in the skin and fascia
+where the guide wire enters the patient. Thread the dilator over the wire into
+the vein with a twisting motion. Excessive force should not be needed. Remove
+the dilator taking care not to dislodge the guide wire.
+
+. Thread the CV catheter over the guide wire until the end of the wire protrudes
+from the end of the catheter and whilst holding the wire still advance the
+catheter into the vein. Attention should be taken not to allow the wire to
+be pushed further into the vein whilst advancing the catheter. Advance the
+catheter to the length determined anatomically or to the length determined
+through the use of EKG lead if used. Remove the guide wire once the catheter
+is fully advanced. The catheter position should be confirmed with chest X-ray.
+
+. Check that blood can be aspirated freely from all lumens of the catheter and
+flush with saline.
+
+. Secure the catheter in place with the suture and cover with a sterile dressing.
+Tape any redundant tubing carefully avoiding any kinking or loops which may
+snag and pull out the catheter.
+
+14. Connect catheter to a bag of intravenous fluid or flush both lumen with
+appropriate anti thrombotic.
+
+Checks before using the catheter
+
+* Ensure fluid runs in freely and that blood flows freely back.
+
+* IF available, take a chest X-ray (ideally erect) to check the position of the catheter
+tip and to exclude a pneumo, hydro or haemothorax. An early radiograph may not
+show up abnormalities and it may be best to wait 34 hours unless symptoms develop.
+Ensure that the patient will be nursed and their catheter can be supervised. Give
+appropriate written instructions regarding how, and what it is to be used for,
+and who to contact if there is a problem.
+
+Checks before using the Pressure CvC Catheter (catheter reference start b
+he l r PR) for contrast media injection:
+
+Attach a 10 ml or larger syringe filled with sterile normal saline.
+
+Aspirate for adequate blood return and vigorously flush the catheter with the
+FUlO mi of sterile normal saline.
+
+Detach the syringe.
+
+Attach the power injection device to the catheter pressure tube identified by
+color and marked “pressure”
+
+Contrast media should be warmed to body temperature prior to power injection.
+
+Ref: TD-INV-CVC4FUHD]
+Issue.7
+
+Designed by:
+
+(9… Marketing Approval Marketing Approval RA Approval
+
+Aalimeud
+
+ --------- page: 6, documento: ./docs/AM-CVC.pdf -----------
+ AMECATH
+x__/
+
+Dimensions
+
+AMECATH Instructions for use
+x_/
+
+A5
+
+Use only lumens marked “Pressure” for power injection of contrast media.
+Ref. Complete power injection study taking care not to exceed the flow rates. Do
+not exceed the maximum flow rate of 10 ml/sec.
+Disconnect the power injection device
+TD-INV-CVC-IFU-10.1 Flush the catheter with 10 ml of sterile normal saline, using a 10 ml or larger
+syringe. In addition, lock each lumen of the catheter with heparinized saline.
+
+Usually 1 ml per lumen is adequate.
+Issue Ympe -
+
+Practical problems common to most techniques of insertion
+
+Usually obvious, but it may be missed in a patient who is hypoxic or
+hypotensive. Arterial pulsation might be seen in the inner lumen of
+the guiding syringe. If unsure, connect a length of manometer tubing
+to the needle / catheter and look for blood flow which goes higher
+than 30cm vertically or is strongly pulsatile. Withdraw the needle and
+apply firm direct pressure to the site for at least 10 minutes or longer f
+there is continuing bleeding. If there is minimal swelling then retry or
+change to a different route
+
+Comments
+
+Arterial puncture
+
+Hf airis easily aspirated into the syringe (note that this may also occur
+¡f the needle is not firmly attached to the syringe) or the patient starts
+to become breathless, abandon the procedure at that site. Obtain a
+chest radiograph and insert an intercostal drain if pneumothorax is
+confirmed. If central access is absolutely necessary, then try another
+route ON THE SAME SIDE or either femoral vein. DO NOT attempt
+either the subclavian or jugular on the other side in order to avoid
+bilateral pneumothoraxes
+
+Suspected pneumothorax
+
+Usually from the cetheter or the wire being inserted too far (into the
+
+Arrhythmias during the right atrium or ventricle. Itis advisable to select the proper length for
+
+procedure each patient. Slight withdrawal of the wire or catheter usually stops
+arrhythmias.
+
+This can occur, especially in the hypo-volaemic patient who is
+breathing spontaneously, ¡f the needle is left in the vein whilst
+
+Air embolus open to the air. Itis easily prevented by ensuring that the patient is
+positioned in the Trendelenburg position (for jugular and subclavian
+routes) and that the guide-wire is passed down the needle promptly
+
+Check that the needie is still in the vein. Flush it with saline. Try
+angling the needle so the end of it lies more along the plane of the
+vessel. Rotate the needle in case the end lies against a vessel wall.
+Reattach the syringe and aspirate to check that vou are still in the
+vein. If the wire has gone through the needle but will not pass down
+the vein it should be very gently pulled back. If any resistance is felt,
+then the needie should be pulled out with the wire still l
+the procedure repeated. This reduces the risk of the
+wire being cut off by the needle tip..
+Apply firm direct pressure with a sterile dressing. Bleeding should
+Persistent bleeding at the usually stop unless there is a coagulation abnormality. Persistent
+entry side severe bleeding may require surgical exploration if there is an arterial
+or venous tear
+
+The wire will not thread
+down the needile
+
+Causes of Early Catheter Dysfunction
+
+Mechanical compression (pinch off syndrome in subclavian catheter)
+
+Malposition of catheter tip
+
+Kinks
+
+Side holes' occlusion due to clotting or fibrin sheath formation or stuck to vein wall.
+Drug precipitation (some antibody locks or IV IgG)
+
+Loss of catheter integrity by infection
+
+Ref: TD-INV-CVC4FU-101
+Issue 7
+
+Designed by:
+
+(9… Marketing Approval Marketing Approval RA Approval
+
+ --------- page: 7, documento: ./docs/AM-CVC.pdf -----------
+ AMECATH
+x__/
+
+Dimensions 1
+AMECATH Instructions for use
+Methods that should be used to treat a dysfunctional or non-functional
+Ref. catheter include:
+
+* Repositioning of a malpositioned catheter.
+
+TD-INV-CVC-IFU-10.1 « Use of thrombolytic, as per hospital protocol.
+* All catheter-related infections, except for catheter exit-site infections, should be
+addressed by initiating parenteral treatment with an antibiotic(s) appropriate for the
+Issue organism(s) suspected.
+Definitive antibiotic therapy should be based on the organism(s) isolated.
+Catheters should be exchanged as soon as possible and within 72 hours of initiating
+antibiotic therapy in most instances, and such exchange does not require a negative
+blood culture result before the exchange. Follow-up cultures are needed 1 week after
+Comments cessation of antibiotic therapy.
+
+Care of the Central Venous Catheter
+
+* Use an aseptic technique when inserting the catheter and any subsequent injections
+
+or changing fluid lines
+
+Keep the entry site covered with a dry sterile dressing
+
+Ensure the line is well secured to prevent movement (this can increase risks of infection
+
+and clot formation).
+
+Change the catheter if there are signs of infection at the site.
+
+Remember to remove the catheter as soon as it is no longer needed. The longer the
+
+catheter is left in, the greater the risks of sepsis and thrombosis .
+Some people suggest changing a catheter every 7 days to reduce the risks of catheter related
+sepsis and thrombosis. However, providing that the catheter is kept clean (sterile injections
+and connections) and there are no signs of systemic sepsis, routine replacement may not be
+necessary. Repeated cannulation to change lines on a routine basis, rather than based on
+clinical need, can increase the risks to the patient.
+
+Catheter removal
+Warnings:
+
+« Only physician familiar with the technique should attempt the removal.
+* Always review hospital protocols, possible complications and their treatments,
+precautions and warning.
+
+Remove any dressing and suture material. Ask the patient to take a breath and fully exhale.
+Remove the catheter with a steady pull while the patient is in breath holding and apply firm
+pressure to the puncture site for at least 5 minutes to stop the bleeding. Excessive force
+should not be needed to remove the catheter. If it does not come out, try rotating ¡t whilst
+pulling gentiy. If this still fails, cover it with a sterile dressing and ask an experienced person
+for advice.
+
+N.B for further information on luer connections, please refer to latest version of BS EN ISO 80369-7
+
+Description of marking system
+
+The catheter tube is marked for effective length in numerical number every 5 centimetres and
+dot every one centimetre however the first 5 cm is not marked.
+
+CO S S
+
+Ref: TD-INV-CVC4FUHD]
+ssue.7
+
+Designed by:
+
+(9… Marketing Approval Marketing Approval RA Approval
+
+ --------- page: 8, documento: ./docs/AM-CVC.pdf -----------
+ AMECATH
+x_'/
+
+Dimensions AMECATH Instructions for use
+A5 X_/
+
+Product Variants:
+Ref.
+
+For variants of AMECATH Central Venous Catheters , Kindly refer to the catalogue, visit our
+website on “www.amecathgroup.com”, or contact your nearest AMECATH representative.
+
+TD-INV-CVC-IFU-10.1
+
+Issue 1. Adult Central Venous Catheter Kits
+Code Structure: CnLC-xxII-K0000
+
+N: number of Lumens
+S: for Single Lumen Catheter D: for Dual Lumen Catheter
+Comments T: for Triple Lumen Catheter Q for Quadra Lumen Catheter
+P: for Penta Lumen catheter
+Xx: for Catheter size in Fr.
+LI: for Catheter Length in cm.
+
+0000: Variable Kit Configurations with Different Contents as per below table
+
+Reference E
+
+- Single/Multi Lumen Adult Central Venous Catheter
+- Introducer Needle xx G yy CM
+
+-5 ec Syringe
+
+Cal.C-xxll -KN - Nitinol Guide Wire XX” YY cm with Dispenser
+
+- Scalpel XX
+
+- Vessel Dilator XX
+
+- Fixation Wing
+
+Pressure resistant catheters are available. Please add PR before the code (PRCnLC-0xI-KN)
+Guide wire with advancer is available. Please add A after the code (Cnl CxxIl-KN-A / PRCNLCxI-KN-A)
+
+- Single/Multi Lumen Adult Central Venous Catheter
+- Introducer Needle xx G yCM
+
++ 5 ec Guiding Syringe
+
+- Nitinol Guide Wire XX" YY em With Dispenser
+
+- Scalpel XX
+
+- Vessel Dilator XX
+
++ Fixation Wing
+
+Pressure resistant catheters are available. Please add PR before the code (PRCNLC-XxI-KGSN)
+Guide wire with advancer is available. Please add A after the code (Cnl C-xxI-KGSN-A / PRCNLC-XxXI-KGSN-A)
+
+Ref: TD-INV-CVC-4FU-101
+Issue.7
+
+Designed by:
+
+| P n
+(… Marketing Approval Marketing Approval RA Approval
+
+Aalimeud
+
+ --------- page: 9, documento: ./docs/AM-CVC.pdf -----------
+ AMECATH
+X_//
+
+Dimensions ;
+AME( A | H Instructions for use
+A5 -
+Contents
+Reference
+Ref.
++ Single/Multi Lumen Adult Central Venous Catheter
+TD-INV-CVC-IFU-10.1 - Introducer Needle xx G yyCM
+- 5 ec Syringe
+- Nitinol Guide Wire XX" YY cm With Dispenser
+Issue CnLC-xxdl -KGYN P
++ Scalpel XX
+- Vessel Dilator XX
+- Fixation Wing
+- Guiding Y Connector
+Comments
+Pressure resistant catheters are available. Please add PR before the code (PRCNIC-XKxII-KGYN)
+Guide wire with advancer is available. Please add A after the code (Cnl C-xxI-KGYN-A / PRCnl Codl-KGYN-A)
++ Single/Multi Lumen Adult Central venous Catheter
+- Over the Needle Catheter
+- Introducer Needile xx G yyCM
++ 5 cc Guiding Syringe
+- Nitinol Guide Wire XX" YY cm With Dispenser
+CnLC- xxI-KGSNO
++ Scalpel XX
+- Vessel Dilator XX
+- Fixation Wing
+- Injection Cap
+- Transparent Catheter Fixation Adhesive
+Pressure resistant catheters are not available for KGSNO kit
+Catheter available in single, dual and triple lumen only.
+Guide wire with advancer is available. Please add A after the code (CnLC-xxI-KGSNO-A)
+2. Pediatric Central venous Catheter Kits
+Code Structure: CnLC-xxII-KP000
+N: number of Lumens
+S: for Single Lumen Catheter D: for Dual Lumen Catheter
+1: for Triple Lumen Catheter Q: for Quadra Lumen Catheter
+Xx: for Catheter size in Fr.
+Li: for Catheter Length in cm.
+'0000: Variable Kit Configurations with Different Contents as per below table
+Ref: TDINV-CVE4FU-D1
+Issue. 2
+Designed by:
+
+| P P
+Óº… Marketing Approval Marketing Approval RA Approval
+
+Aalimeud
+ --------- page: 10, documento: ./docs/AM-CVC.pdf -----------
+ Dimensions
+
+A5
+
+Ref.
+TD-INV-CVC-IFU-10.1
+
+Issue
+
+Comments
+
+Designed by:
+
+Mimed
+Aalimeud
+
+AMECATH
+x_/
+
+Instructions for
+
+Reference
+
+Contents
+
+- Pediatric Single/Multi Lumen Lumen Central Venous Catheter
++ Introducer Needle xx G yyCM
+
+* 5 eC Syringe
+
+*J - End Nitinol Guide Wire XX" YY cm With Dispenser
+
++ Scalpel XX
+
+- Vessel Dilator XX
+
+- Fixation Wing
+
+- Injection Caps
+
+Guide wire with advancer is available. Please add A after the code (CnLC-xxII-KP-A)
+
+- Pediatric Single Lumen Central Venous Catheter
+- Peel Away Over the Needie
+
+* Measuring Tape
+
+- T-Connector With stiffener wire
+
+Single lumen catheter only available.
+
+CnLC- xxI-KP**
+
++ Pediatric Single / Dual Lumen Central Venous Catheter
+- Introducer Needle xx G yyCM
+
+* 5 ec Syringe
+
++J-End Nitinol Guide Wire XX” YY cm With Dispenser
+
+- Peel Away Over Dilator
+
+- Measuring Tape
+
+- T-Connector With Stiffener Wire
+
+Catheter available in single and dual lumen oniy.
+Guide wire with advancer is available. Please add A after the code (Cnl C-xxIl- KP*+*-A)
+
+CnC xxIl -KPO
+
+Pediatric Single/Multi Lumen Central Venous Catheter
+- Over the Needle Catheter
+
++ 5 ec Syringe
+
+- J-End Nitinol Guide Wire XX” YY cm With Dispenser
+
++ Scalpel XX
+
+* Vessel Dilator XX
+
+- Fixation Wing
+
+Guide wire with advancer is available. Please add A after the code (CnLC-xxIl- KPO-A)
+
+Ref: TD-INV-CVC4FU-101
+Issue 7
+
+Ty
+Marketing Approval Marketing Approval
+
+RA Approval
+ --------- page: 11, documento: ./docs/AM-CVC.pdf -----------
+ AMECATH
+x_/
+
+Dimensions ;
+AME( A | H Instructions for use
+A5
+Contents
+Reference
+Ref.
+- Pediatric Single/Multi Lumen Central Venous Catheter
+TD-INV-CVC-IFU-10.1 + Introducer Needle xx G yyCM
+- 5 ec Syringe
+* J-End Nitinol Guide Wire XX” YY cm With Dispenser
+Issue
++ Scalpel XX
+- Vessel Dilator XX
+- Fixation Wing
+- Guiding Y Connector
+Comments
+Guide wire with advancer is available. Please add A after the code (CnlC-xxI- KPGY-A)
+- Pediatric Single/Multi Lumen Central Venous Catheter
+- Introducer Needle xx G yyCM
+- 5 ec Syringe
+J - End Nitinol Guide Wire XX” YY cm With Dispenser
+- Scalpel XX
+- Vessel Dilator XX
+- Fixation Wing
+- Neutral Valves
+Catheter available in single, dual and triple lumen ony.
+Guide wire with advancer is available. Please add A after the code (CnIC-xxll- KPV-A)
+Storage and Product Safe Disposal
+Store at room controlled temperature.
+Do not expose to organic solvents, ionizing radiation or ultraviolet light.
+Rotate inventory so that catheters are used prior to expiration date on the package label.
+Used product should be disposed in sanitary container to prevent possible contamination
+and cross infection.
+In case of any questions or queries, Kindly contact the local Authorised Representative or visit
+AMECATH website on : “www.amecathgroup.com”
+In case of any Adverse event, Contact your local Health Authority immediately.
+STERLE] C €
+2797
+AMECO MEDICAL INDUSTRIES OBELISSA
+Industrial Zone B4 - Plot T19 East. Bd. Général Wahis, 53
+T0th of Ramadan City - Egypt 1030 Brussels - BELGIUM
+Tel: -20 5545 01321/2- Fax: 20554501224 Tel:=322.7325954 | Fax:=32.2.732.60.03
+supporteamecathgroup.com | www amecathgroup.com maileobelis.net | www.obelis.net
+Ref: TDINV-CVE4FU-D1
+Issue. 2
+Designed by:
+
+Mimed
+Aalimeud
+
+Marketing Approval
+
+Marketing Approval
+
+RA Approval

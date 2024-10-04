@@ -15,7 +15,7 @@ if not os.path.exists("img"):
 def extraer_imagenes_y_convertir_a_texto(pdf_path):
     # Convertir las páginas del PDF a imágenes
     pages = convert_from_path(pdf_path)
-
+    extracted_text = ""
     for i, page in enumerate(pages):
         # Guardar la imagen de la página en la carpeta img
         image_path = f"img/page_{i+1}.jpg"
@@ -23,16 +23,21 @@ def extraer_imagenes_y_convertir_a_texto(pdf_path):
 
         # Aplicar OCR a la imagen
         texto_imagen = pytesseract.image_to_string(
-            Image.open(image_path), lang="eng"
+            # Image.open(image_path), lang="eng"
+            Image.open(image_path),
+            lang="spa",
         )  # Cambia 'eng' por el idioma necesario
 
         # Imprimir el texto extraído solo de las imágenes
         if texto_imagen.strip():  # Verifica que haya texto extraído
             print(f"Texto extraído de las imágenes en la página {i+1}:")
             print(texto_imagen)
+            extracted_text += f" --------- page: {i}, documento: {pdf_path} -----------\n {texto_imagen}"
             print("-" * 50)
         else:
             print(f"No se detectó texto en las imágenes de la página {i+1}")
+    with open("pdf_texto.txt", "w") as archivo:
+        archivo.write(extracted_text)
 
     # Eliminar las imágenes después de procesarlas
     eliminar_imagenes_temporales("img")
@@ -48,4 +53,4 @@ def eliminar_imagenes_temporales(carpeta):
             print(f"Error al eliminar {archivo_path}: {e}")
 
 
-extraer_imagenes_y_convertir_a_texto("./test_imagenes_texto_corto.pdf")
+# extraer_imagenes_y_convertir_a_texto("./contrato_catolica_posgrado.pdf")

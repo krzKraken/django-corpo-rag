@@ -14,7 +14,11 @@ from termcolor import colored
 
 from src import file_processing
 from src.embeddingchat import get_embedding_response
-from src.embeddings import create_embedding_from_pdf, get_unique_sources_list
+from src.embeddings import (
+    create_embedding_from_pdf,
+    create_embedding_from_text,
+    get_unique_sources_list,
+)
 from src.response_to_html import format_to_html
 
 from .models import Blog, Chat
@@ -207,6 +211,8 @@ def blog(request):
             created_at=timezone.now,
         )
         blog.save()
+
+        create_embedding_from_text(message)
 
         # TODO: Implementar guardado en base de datos y creacion de embeddings
         return JsonResponse(
