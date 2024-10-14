@@ -69,16 +69,3 @@ def get_embedding_response(question):
         return response
     except:
         return "No fue posible conectar con la base de datos de embeddings"
-
-
-""" def get_embedding_response(question):
-    retrieved_docs, response = complete_query(question, llm, chroma_local, prompt(text))
-
-    print(colored(f"\n[+] response: {response}", "blue"))
-
-    if retrieved_docs:
-        print(colored("\n[+] retrieved documents:", "green"))
-        for doc in retrieved_docs:
-            print(colored(f"\ndocument: {doc['content']}", "yellow"))
-
-    return response """

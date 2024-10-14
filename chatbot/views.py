@@ -19,6 +19,7 @@ from src.embeddings import (
     create_embedding_from_text,
     get_unique_sources_list,
 )
+from src.extraer_imagenes_pdf import convert_text_to_pdf
 from src.response_to_html import format_to_html
 
 from .models import Blog, Chat
@@ -124,9 +125,9 @@ def chatdocs(request):
 @login_required
 def loadedfiles(request):
     try:
-
         documents = get_unique_sources_list()
     except:
+        print(colored(f"\n[-] No se han encontrado elementos cargados....\n", "yellow"))
         return render(request, "loadedfiles.html")
     # Asegurarnos que docs existe
     if not os.path.exists(DOCS_DIR):
@@ -198,29 +199,67 @@ def login(request):
         return render(request, "login.html")
 
 
+# @login_required
+# def blog(request):
+#
+#     blogs = Blog.objects.filter()
+#
+#     if request.method == "POST":
+#         title = request.POST.get("title")
+#         message = request.POST.get("message")
+#         blog = Blog(
+#             user=request.user,
+#             title=title,
+#             post=message,
+#             created_at=timezone.now(),
+#         )
+#         blog.save()
+#
+#         # create_embedding_from_text(message)
+#
+#         # TODO: Implementar guardado en base de datos y creacion de embeddings
+#         return JsonResponse(
+#             {
+#                 "message": message,
+#                 "title": title,
+#                 "response": f"Tu Post se ha almacenado correctamente. Titulo:\n{title}\nContenido:\n<br>{message}",
+#             }
+#         )
+#
+#     return render(request, "blog.html", {"blogs": blogs})
+
+
 @login_required
 def blog(request):
-
-    blogs = Blog.objects.filter()
+    blogs = Blog.objects.all()
 
     if request.method == "POST":
+        title = request.POST.get("title")
         message = request.POST.get("message")
-        blog = Blog(
-            user=request.user,
-            post=message,
-            created_at=timezone.now,
-        )
-        blog.save()
 
-        create_embedding_from_text(message)
+        if title and message:  # Verificar que los valores existan
+            blog = Blog(
+                user=request.user,
+                title=title,
+                post=message,
+                created_at=timezone.now(),  # Asegúrate de llamar la función
+            )
+            blog.save()
+            title = f"{request.user} - {title}"
+            convert_text_to_pdf(title, message)
+            new_pdf_name = title + ".pdf"
+            create_embedding_from_pdf(new_pdf_name)
 
-        # TODO: Implementar guardado en base de datos y creacion de embeddings
-        return JsonResponse(
-            {
-                "message": message,
-                "response": f"Tu Post se ha almacenado correctamente. Contenido:\n<br>{message}",
-            }
-        )
+            return JsonResponse(
+                {
+                    "message": message,
+                    "title": title,
+                    "response": f"Tu Post se ha almacenado correctamente. Titulo:\n{title}\nContenido:\n<br>{message}",
+                }
+            )
+
+        # En caso de que falten datos, envía una respuesta de error
+        return JsonResponse({"error": "Faltan datos en el formulario."}, status=400)
 
     return render(request, "blog.html", {"blogs": blogs})
 

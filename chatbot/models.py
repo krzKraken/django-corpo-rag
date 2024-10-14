@@ -16,8 +16,9 @@ class Chat(models.Model):
 # Blog messages
 class Blog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.TextField()
     post = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user.username.upper()} : {self.post}"
+        return f"{self.user.username.upper()} : {self.title} - {self.post}"
