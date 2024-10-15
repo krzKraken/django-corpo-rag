@@ -185,7 +185,7 @@ cython_debug/
 #.idea/
 
 
-
+backups/
 img/
 lib64/
 parts/

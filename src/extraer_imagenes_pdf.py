@@ -121,9 +121,14 @@ def convert_text_to_pdf(title, text):
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
+
+    # Separar el texto por líneas usando saltos de línea
     lines = text.split("\n")
     for line in lines:
-        pdf.cell(200, 10, txt=line, ln=True, align="L")
+        # Usa multi_cell para que el texto se ajuste al ancho de la página
+        pdf.multi_cell(0, 10, txt=line, align="L")
+
+    # Guardar el PDF
     pdf_name = title + ".pdf"
-    saved_pdf_path += f"/{pdf_name}"
+    saved_pdf_path = os.path.join(saved_pdf_path, pdf_name)
     pdf.output(saved_pdf_path)

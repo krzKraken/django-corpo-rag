@@ -6,19 +6,14 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
-from django.http import JsonResponse
+from django.http import Http404, JsonResponse
 from django.shortcuts import redirect, render
 from django.utils import timezone
 from dotenv import load_dotenv
 from termcolor import colored
 
-from src import file_processing
 from src.embeddingchat import get_embedding_response
-from src.embeddings import (
-    create_embedding_from_pdf,
-    create_embedding_from_text,
-    get_unique_sources_list,
-)
+from src.embeddings import create_embedding_from_pdf, get_unique_sources_list
 from src.extraer_imagenes_pdf import convert_text_to_pdf
 from src.response_to_html import format_to_html
 
@@ -59,7 +54,6 @@ def ask_openai(message):
         max_tokens=500,
         temperature=1,
     )
-    print(response)
     if response.choices[0].message.content:
         answer = response.choices[0].message.content.strip()
         return answer
@@ -127,7 +121,6 @@ def loadedfiles(request):
     try:
         documents = get_unique_sources_list()
     except:
-        print(colored(f"\n[-] No se han encontrado elementos cargados....\n", "yellow"))
         return render(request, "loadedfiles.html")
     # Asegurarnos que docs existe
     if not os.path.exists(DOCS_DIR):
@@ -148,7 +141,6 @@ def loadedfiles(request):
                 },
             )
         if archivo_pdf.name in documents:
-            print(colored("\n[!] Existe", "red"))
             error_message = "El archivo o nombre del pdf ya existe en la base de datos"
             return render(
                 request,
@@ -156,20 +148,11 @@ def loadedfiles(request):
                 {"documents": documents, "error_message": error_message},
             )
         else:
-            print(colored(f"[!] No existe", "red"))
-            print(
-                colored(
-                    f"\n[+] El archivo {archivo_pdf} no existia en la base de datos, creandolo....",
-                    "blue",
-                )
-            )
             fs = FileSystemStorage(location=DOCS_DIR)
             archivo_nombre = fs.save(archivo_pdf.name, archivo_pdf)
 
             create_embedding_from_pdf(archivo_pdf.name)
 
-            print(colored(f"\n[!] Archivo_pdf: {archivo_pdf}", "red"))
-            print(colored(f"\n[!] Documents: {documents}", "red"))
             messages.success(
                 request, f"El archivo '{archivo_pdf}' se ha cargado correctamente"
             )
@@ -180,6 +163,7 @@ def loadedfiles(request):
         "loadedfiles.html",
         {
             "documents": documents,
+            "DOCS_URL": "media/",
         },
     )
 
@@ -197,36 +181,6 @@ def login(request):
             return render(request, "login.html", {"error_message": error_message})
     else:
         return render(request, "login.html")
-
-
-# @login_required
-# def blog(request):
-#
-#     blogs = Blog.objects.filter()
-#
-#     if request.method == "POST":
-#         title = request.POST.get("title")
-#         message = request.POST.get("message")
-#         blog = Blog(
-#             user=request.user,
-#             title=title,
-#             post=message,
-#             created_at=timezone.now(),
-#         )
-#         blog.save()
-#
-#         # create_embedding_from_text(message)
-#
-#         # TODO: Implementar guardado en base de datos y creacion de embeddings
-#         return JsonResponse(
-#             {
-#                 "message": message,
-#                 "title": title,
-#                 "response": f"Tu Post se ha almacenado correctamente. Titulo:\n{title}\nContenido:\n<br>{message}",
-#             }
-#         )
-#
-#     return render(request, "blog.html", {"blogs": blogs})
 
 
 @login_required
@@ -291,3 +245,25 @@ def register(request):
 def logout(request):
     auth.logout(request)
     return redirect("login")
+
+
+# Listar pdfs
+def list_pdfs(request):
+    # Obtener la lista de archivos PDF en la carpeta docs/
+    pdf_dir = settings.MEDIA_ROOT
+    try:
+        pdf_files = [f for f in os.listdir(pdf_dir) if f.endswith(".pdf")]
+    except FileNotFoundError:
+        pdf_files = []
+
+    return render(request, "list_pdfs.html", {"pdf_files": pdf_files})
+
+
+def view_pdf(request, filename):
+    # Verifica que el archivo PDF existe
+    file_path = os.path.join(settings.MEDIA_ROOT, filename)
+    if not os.path.exists(file_path):
+        raise Http404("El archivo no existe")
+
+    # Renderiza una plantilla que cargue el PDF
+    return render(request, "view_pdf.html", {"pdf_url": settings.MEDIA_URL + filename})

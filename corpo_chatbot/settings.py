@@ -18,8 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR_MEDIA = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Rutas media
-MEDIA_ROOT = os.path.join(BASE_DIR_MEDIA, "docs")
 MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR_MEDIA, "docs/")
 
 
 # Quick-start development settings - unsuitable for production
@@ -33,6 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# X_FRAME_OPTIONS = "SAMEORIGIN"
 
 # Application definition
 

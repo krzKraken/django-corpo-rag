@@ -33,7 +33,9 @@
     <div class="document-list-container">
       <ol class="list-group list-group-numbered">
         {% for document in documents %}
-        <li class="list-group-item">{{ document }}</li>
+        <li class="list-group-item">
+         <a href="{{ DOCS_URL }}{{ document }}" target="_blank">{{ document }}</a>
+        </li>
         {% empty %}
         <li class="list-group-item">No se han cargado documentos</li>
         {% endfor %}
