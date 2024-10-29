@@ -31,7 +31,7 @@ SECRET_KEY = "django-insecure-u8#^z^d13qum=!68lmm8&$8zsm^+y3x=w6pjr=#)n7*isgr5+s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # X_FRAME_OPTIONS = "SAMEORIGIN"
 
